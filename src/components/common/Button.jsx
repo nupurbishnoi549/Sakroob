@@ -1,0 +1,14 @@
+import React from 'react';
+
+const Button = ({ btnClass, btnText }) => {
+  return (
+    <button
+      type='button'
+      className={`font-medium leading-[100%] py-4 text-black border-dark-blue cursor-pointer ${btnClass}`}
+    >
+      {btnText}
+    </button>
+  );
+};
+
+export default Button;
