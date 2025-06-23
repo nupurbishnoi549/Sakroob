@@ -18,16 +18,12 @@ const TestimonialSwiper = () => {
                     What Our Client’s Says
                 </h2>
             </div>
-
-            {/* Navigation Buttons */}
             <button className="custom-prev absolute left-4 top-[52%] z-10 w-9 h-9 bg-white border rounded-full flex items-center justify-center shadow-md">
                 <img src={leftArrow} alt="prev" />
             </button>
             <button className="custom-next absolute right-4 top-[52%] z-10 w-9 h-9 bg-white border rounded-full flex items-center justify-center shadow-md">
                 <img src={rightArrow} alt="next" />
             </button>
-
-            {/* Swiper */}
             <Swiper
                 modules={[Navigation, Autoplay]}
                 navigation={{ nextEl: '.custom-next', prevEl: '.custom-prev' }}
@@ -50,22 +46,17 @@ const TestimonialSwiper = () => {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-
-                            {/* Quote */}
                             <p className="text-sm text-gray-600 italic mb-4 relative max-w-[90%] mx-auto">
                                 <span className="text-2xl absolute -left-4 -top-2 text-[#ccc]">“</span>
                                 {item.description}
                                 <span className="text-2xl absolute -right-4 -bottom-2 text-[#ccc]">”</span>
                             </p>
 
-                            {/* Star Rating */}
                             <div className="flex justify-center gap-1 mb-3">
                                 {Array(5).fill(0).map((_, i) => (
                                     <img key={i} src={starIcon} alt="star" className="w-4 h-4" />
                                 ))}
                             </div>
-
-                            {/* Name & Role */}
                             <h3 className="font-bold text-[#112D49] text-lg">{item.title}</h3>
                             <p className="text-sm text-gray-500">{item.role}</p>
                         </div>

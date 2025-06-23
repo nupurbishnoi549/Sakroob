@@ -15,7 +15,7 @@ const Hero = () => {
                     pagination={{ clickable: true }}
                     autoplay={{ delay: 4000 }}
                     loop={true}
-                    className="w-full h-[650px] rounded-2xl overflow-hidden"
+                    className="w-full xl:h-[650px] lg:h-[600px] md:h-[450px] h-[420px] rounded-2xl overflow-hidden"
                 >
                     {HERO_SLIDES.map((slide) => (
                         <SwiperSlide key={slide.id}>
@@ -28,7 +28,7 @@ const Hero = () => {
                                         {slide.heading}
                                     </h2>
                                     <p className="mb-6">{slide.text}</p>
-                                    <div className="flex justify-center gap-4">
+                                    <div className="flex max-md:flex-col justify-center gap-4">
                                         <Button btnText="Browse Products" btnClass="bg-dark-blue px-5 rounded-full hover:opacity-90 transition text-white" />
                                         <Button btnText="Starter Kits" btnClass="px-5 rounded-full hover:opacity-90 transition" />
                                     </div>
