@@ -4,7 +4,7 @@ const Button = ({ btnClass, btnText }) => {
   return (
     <button
       type='button'
-      className={`font-medium leading-[100%] py-4 text-black border-dark-blue cursor-pointer ${btnClass}`}
+      className={`font-medium rounded-full leading-[100%] py-4 text-black border-dark-blue cursor-pointer ${btnClass}`}
     >
       {btnText}
     </button>

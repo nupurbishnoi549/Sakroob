@@ -27,6 +27,14 @@ import facebook from '../assets/images/svg/facebook.svg';
 import instagram from '../assets/images/svg/instagram.svg'
 import twitter from '../assets/images/svg/twitter.svg'
 import youtube from '../assets/images/svg/youtube.svg'
+import gamingChair from '../assets/images/png/gaming-chair.png';
+import wirelessRouter from '../assets/images/png/wireless-router.png';
+import gamingPc from '../assets/images/png/gaming-pc.png';
+import ratingImage from '../assets/images/svg/star.svg';
+import blogImg1 from '../assets/images/png/blog-img1.png';
+import blogImg2 from '../assets/images/png/blog-img2.png';
+import blogImg3 from '../assets/images/png/blog-img3.png';
+import blogImg4 from '../assets/images/png/blog-img4.png';
 
 
 export const NAV_ITEMS = [
@@ -52,7 +60,6 @@ export const NAV_ITEMS = [
     { label: 'Blog' },
     { label: 'Contact' },
 ];
-
 export const NAVBAR_ICONS = [
     { alt: 'User', icon: user },
     { alt: 'Wishlist', icon: wishlist },
@@ -67,7 +74,61 @@ export const CATEGORY_DATA = [
     { id: 5, title: "Storage (SSD)", icon: storageIcon },
     { id: 6, title: "Graphic Card", icon: graphicIcon },
 ];
-
+export const BLOG_DATA = [
+    {
+        title: 'How to Build a Mini NAS',
+        desc: 'Learn to build your own network storage system with simple components.',
+        cta: 'Read Guide',
+        img: blogImg1,
+        bg: 'bg-[#F0F0F0]',
+    },
+    {
+        title: '5 Tools Every Maker Should Own',
+        desc: 'The essential toolkit for every DIY electronics enthusiast.',
+        cta: 'Read Article',
+        img: blogImg2,
+        bg: 'bg-[#E8F2FF]',
+    },
+    {
+        title: 'Inside a Raspberry Pi Retro Console',
+        desc: 'Step-by-step log of building a retro game machine.',
+        cta: 'View Build Log',
+        imgLeft: blogImg3,
+        imgRight: blogImg4,
+        bg: 'bg-[#D6ECFF]',
+        fullWidth: true,
+    },
+];
+export const BESTSELLERS_DATA = [
+    {
+        img: gamingPc,
+        title: 'Vortex Gaming PC',
+        description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
+        price: '$249.99',
+        rating: ratingImage,
+    },
+    {
+        img: wirelessRouter,
+        title: 'D-Link ADSL Wireless Router DSL2790U',
+        description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
+        price: '$179.99',
+        rating: ratingImage,
+    },
+    {
+        img: gamingChair,
+        title: 'Gaming Chair',
+        description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
+        price: '$209.99',
+        rating: ratingImage,
+    },
+    {
+        img: wirelessRouter,
+        title: 'D-Link ADSL Wireless Router DSL2790U',
+        description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
+        price: '$179.99',
+        rating: ratingImage,
+    },
+];
 export const HERO_SLIDES = [
     {
         id: 1,
@@ -82,7 +143,6 @@ export const HERO_SLIDES = [
         img: heroBg2,
     },
 ];
-
 export const FEATURES_LIST = [
     {
         icon: expressDelivery,
@@ -110,22 +170,26 @@ export const FEATURES_LIST = [
        text: 'For Order',
     },
 ];
-
 export const TESTIMONIALS_DATA = [
     {
         title: "William Gate",
         role: "CEO",
-        description: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...",
+        description: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth,",
         image: testimonialImg,
     },
     {
         title: "Darrell Steward",
         role: "Manager",
-        description: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...",
+        description: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth,",
         image: testimonialImg2,
     },
+    {
+        title: "John Doe",
+        role: "Designer",
+        description: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth,",
+        image: testimonialImg,
+    },
 ];
-
 export const SHOP_DATA = [
     {
         title: 'Sensors & Modules',
@@ -140,7 +204,7 @@ export const SHOP_DATA = [
     {
         title: 'DIY Tools',
         image: diyImg,
-        bgColor: '#EFEFEF',
+        bgColor: '#EEF4FB',
     },
     {
         title: 'Cables & Connectors',
@@ -158,7 +222,6 @@ export const SHOP_DATA = [
         bgColor: '#DCEEFF',
     },
 ];
-
 export const NAV_LINKS = [
     { label: "Shipping", href: "#" },
     { label: "Warranty", href: "#" },
@@ -166,16 +229,17 @@ export const NAV_LINKS = [
     { label: "Blog", href: "#" },
     { label: "Contact", href: "#" },
 ];
-
 export const SOCIALS = [
     { alt: "Facebook", href: "#", icon: facebook },
     { alt: "Instagram", href: "#", icon: instagram },
     { alt: "X", href: "#", icon: twitter },
     { alt: "YouTube", href: "#", icon: youtube },
 ];
-
 export const LEGAL_LINKS = [
     { label: "Term of Service", href: "#" },
     { label: "Privacy Policy", href: "#" },
 ];
+
+
+
 

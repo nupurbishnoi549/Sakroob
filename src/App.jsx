@@ -2,11 +2,12 @@ import React from 'react'
 import Marque from './components/Marque'
 import Hero from './components/Hero'
 import FeatureBanner from './components/FeatureBanner'
-// import TestimonialSwiper from './components/TestimonialSwiper'
-// import SakroobCircle from './components/SakroobCircle'
+import TestimonialSwiper from './components/TestimonialSwiper'
 import Shop from './components/Shop'
 import Navbar from './components/common/Navbar'
 import Footer from './components/Footer'
+import BestSellers from './components/BestSellers'
+import Blog from './components/Blog'
 
 const App = () => {
   return (
@@ -15,9 +16,10 @@ const App = () => {
       <Marque />
       <Hero />
       <FeatureBanner />
-      {/* <TestimonialSwiper/> */}
       <Shop />
-      {/* <SakroobCircle/> */}
+      <BestSellers />
+      <Blog/>
+      <TestimonialSwiper/>
       <Footer/>
     </>
   )
