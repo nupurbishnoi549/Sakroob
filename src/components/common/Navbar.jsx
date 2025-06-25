@@ -34,8 +34,8 @@ const Navbar = () => {
     return (
         <header className="bg-[#0A2740] text-white">
             <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 h-20">
-                <div className="flex items-center gap-2 md:w-[115px] w-18 md:h-[93px] h-18">
-                    <img src={logo} alt="Logo" className="w-full h-full object-cover md:mt-7 mt-5" />
+                <div className="flex items-center gap-2 md:w-[115px] w-22 md:h-[93px] h-22">
+                    <img src={logo} alt="Logo" className="w-full h-full object-contain md:mt-7 mt-9" />
                 </div>
                 <nav className="hidden lg:flex items-center gap-6">
                     {NAV_ITEMS.map((item) => (
@@ -96,7 +96,6 @@ const Navbar = () => {
                     />
                 </div>
             </div>
-
             {menuOpen && (
                 <div className="fixed inset-0 bg-[#0A2740] z-50 overflow-y-auto">
                     <div className="flex justify-end p-4">

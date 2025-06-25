@@ -14,7 +14,7 @@ const SakroobCircle = () => {
                   >
                   <div className="absolute inset-0 bg-blue-400/65 rounded-[24px]" />
                       <div className="relative z-10 text-white text-center px-4 md:py-[88px] py-10">
-                      <Heading headingText="Join the Sakroob Circle" headingClass="text-white"/>
+                      <Heading headingText="Join the Sakroob Circle" headingClass="!text-white"/>
                       <Description descriptionText="Exclusive drops, early access, and maker tips in your inbox." descriptionClass="!pt-4 !text-white pb-[46px]"/>
                       <div className="flex items-center justify-between max-w-[489px] w-full mx-auto bg-white border border-[#00000033] rounded-full px-4 sm:px-5 py-2">
                           <input

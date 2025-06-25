@@ -2,17 +2,16 @@ import React from "react";
 import { NAV_LINKS, SOCIALS, LEGAL_LINKS } from "../utils/helper";
 import footerLogo from '../assets/images/png/footer-logo.png';
 import SakroobCircle from '../components/SakroobCircle';
+import Description from "./common/Description";
 
 const Footer = () => (
     <div className="bg-[#16375b] text-white md:pt-[217px] pt-[170px] pb-4 px-4 relative">
-        <div className='absolute top-[-34%] xl:left-[11%] lg:left-[7%] md:left-[2.5%] left-0 max-md:px-3'>
+        <div className='absolute top-[-34%] xl:left-[11%] lg:left-[7%] md:left-[3%] left-0 max-md:px-3'>
             <SakroobCircle/>
         </div>
         <div className="max-w-xl mx-auto flex flex-col items-center text-center">
             <img src={footerLogo} alt="Sakroob" className="w-[176px] h-[142px] mb-4" />
-            <p className="text-gray-300 text-sm mb-6 max-w-[338px]">
-                Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.
-            </p>
+            <Description descriptionText="Commodo egestas etiam arcu curabitur aliquam volutpat a gravida." descriptionClass="!mb-6 !max-w-[338px] !text-white"/>
             <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 font-medium mb-6">
                 {NAV_LINKS.map(link => (
                     <a key={link.label} href={link.href} className="hover:underline">{link.label}</a>

@@ -5,7 +5,6 @@ import gameIcon from '../assets/images/svg/game.svg';
 import storageIcon from '../assets/images/svg/storage.svg';
 import graphicIcon from '../assets/images/svg/graphic-card.svg';
 import heroBg1 from '../assets/images/png/hero-img.png'
-import heroBg2 from '../assets/images/png/hero-img.png'
 import expressDelivery from '../assets/images/svg/express-delivery.svg';
 import easyReturn from '../assets/images/svg/easy-return.svg';
 import supportIcon from '../assets/images/svg/support.svg';
@@ -74,6 +73,26 @@ export const CATEGORY_DATA = [
     { id: 5, title: "Storage (SSD)", icon: storageIcon },
     { id: 6, title: "Graphic Card", icon: graphicIcon },
 ];
+export const HERO_SLIDES = [
+    {
+        id: 1,
+        heading: 'Where Tinkerers Bring Ideas Alive',
+        text: 'Explore niche tech gear, DIY kits, and pro tools — built for creators, gamers, and engineers.',
+        img: heroBg1,
+    },
+    {
+        id: 2,
+        heading: 'Make. Test. Repeat.',
+        text: 'From concept to creation, unleash your tech skills with tools that inspire.',
+        img: heroBg1,
+    },
+    {
+        id: 3,
+        heading: 'Where Tinkerers Bring Ideas Alive',
+        text: 'Explore niche tech gear, DIY kits, and pro tools — built for creators, gamers, and engineers.',
+        img: heroBg1,
+    },
+];
 export const BLOG_DATA = [
     {
         title: 'How to Build a Mini NAS',
@@ -129,20 +148,7 @@ export const BESTSELLERS_DATA = [
         rating: ratingImage,
     },
 ];
-export const HERO_SLIDES = [
-    {
-        id: 1,
-        heading: 'Where Tinkerers Bring Ideas Alive',
-        text: 'Explore niche tech gear, DIY kits, and pro tools — built for creators, gamers, and engineers.',
-        img: heroBg1,
-    },
-    {
-        id: 2,
-        heading: 'Make. Test. Repeat.',
-        text: 'From concept to creation, unleash your tech skills with tools that inspire.',
-        img: heroBg2,
-    },
-];
+
 export const FEATURES_LIST = [
     {
         icon: expressDelivery,

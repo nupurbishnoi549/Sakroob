@@ -6,7 +6,7 @@ const Marque = () => {
 
     return (
         <div className="overflow-hidden py-6">
-            <div className="flex animate-marquee whitespace-nowrap gap-4">
+            <div className="flex animate-marquee gap-4">
                 {duplicatedData.map((category, index) => (
                     <div
                         key={index}

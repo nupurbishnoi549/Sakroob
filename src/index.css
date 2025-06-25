@@ -20,7 +20,7 @@
   background-color: var(--color-light-blue);
 }
 
-.bg-bg-blue {
+.bg-blue {
   background-color: var(--color-bg-blue);
 }
 
@@ -37,24 +37,8 @@
 }
 
 /* ---------- CUSTOM TEXT COLOR CLASSES ---------- */
-.text-light-blue {
-  color: var(--color-light-blue);
-}
-
-.text-bg-blue {
-  color: var(--color-bg-blue);
-}
-
-.text-silver {
-  color: var(--color-silver);
-}
-
 .text-dark-blue {
   color: var(--color-dark-blue);
-}
-
-.text-sky {
-  color: var(--color-sky);
 }
 /* ---------- BORDER ---------- */
 .border-dark-blue {
@@ -85,6 +69,22 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet {
+  width: 21px;
+  height: 6px;
+  background-color: #E8E8E8;
+  border-radius: 4px;
+  opacity: 1 !important;
+  transition: width 0.3s ease;
+  margin: 0 6px !important;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet-active {
+  width: 51px !important;
+  height: 6px;
+  background-color: #112D49 !important;
 }
 
 .swiper-slide-active .testimonial-slide {
