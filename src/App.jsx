@@ -14,11 +14,11 @@ import Login from './pages/Login';
 import Signup from './pages/Signup'; 
 
 const App = () => {
-  // const { isAuthenticated, currentScreen } = useAuth();
+  const { isAuthenticated, currentScreen } = useAuth();
 
-  // if (!isAuthenticated) {
-  //   return currentScreen === 'signup' ? <Signup /> : <Login />;
-  // }
+  if (!isAuthenticated) {
+    return currentScreen === 'signup' ? <Signup /> : <Login />;
+  }
 
   return (
     <>
