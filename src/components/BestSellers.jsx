@@ -67,7 +67,7 @@ const BestSellers = () => {
                                         <span className="text-xl sm:text-2xl font-semibold text-dark-blue">{item.price}</span>
                                         <img src={item.rating} alt="Rating" className="w-[100px] sm:w-[128px]" />
                                     </div>
-                                    <div onClick={() => navigate(`/product/${item.slug}`)} className="cursor-pointer flex items-center justify-between gap-4 mt-">
+                                    <div onClick={() => navigate(`/product/${item.slug}`)} className="cursor-pointer flex items-center justify-between gap-4 ">
                                         <Button
                                             btnText="Shop Now"
                                             btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 xl:px-[88px]"

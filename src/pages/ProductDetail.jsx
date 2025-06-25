@@ -1,34 +1,48 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { BESTSELLERS_DATA } from '../utils/helper';
 import Button from '../components/common/Button';
+import { useCart } from '../context/CartContext';
+import ProductTabs from '../components/ProductTabs';
+import PopularProducts from '../components/PopularProducts';
 
 const dummyColors = ['#000000', '#00B894', '#1E90FF'];
 
 const ProductDetails = () => {
     const { slug } = useParams();
-    const product = BESTSELLERS_DATA.find(
-        (item) => item.title.toLowerCase().replace(/\s+/g, '-') === slug
-    );
+    const navigate = useNavigate();
+    const { addToCart } = useCart();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    const product = BESTSELLERS_DATA.find(item => item.slug === slug);
 
     const [selectedColor, setSelectedColor] = useState(dummyColors[0]);
     const [quantity, setQuantity] = useState(1);
     const [selectedImage, setSelectedImage] = useState(product?.img);
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false); // Popup state
 
     if (!product) {
         return <div className="text-center mt-20 text-xl">Product not found.</div>;
     }
 
     return (
-        <section className="py-12 px-4 max-w-[1284px] mx-auto">
+        <div className="py-12 px-4 max-w-[1284px] mx-auto relative">
+            {/* Small toast-style popup */}
+            {showSuccessPopup && (
+                <div className="fixed bottom-6 right-6 bg-dark-blue text-white px-4 py-3 rounded shadow-lg z-50 animate-slide-in">
+                    <p className="text-sm font-semibold">Order placed successfully! 🎉</p>
+                </div>
+            )}
+
             <div className="flex flex-col lg:flex-row gap-10">
-                {/* Left: Image Section */}
                 <div className="flex-1">
                     <div className="bg-[#EEF4FF] rounded-lg p-6 flex justify-center items-center">
                         <img
                             src={selectedImage}
                             alt={product.title}
-                            className="object-contain w-full max-w-[320px] sm:max-w-sm h-[430px]"
+                            className="object-contain w-full max-w-[320px] sm:max-w-sm h-[400px]"
                         />
                     </div>
                     <div className="flex flex-wrap justify-center gap-4 mt-4">
@@ -53,8 +67,6 @@ const ProductDetails = () => {
                         ))}
                     </div>
                 </div>
-
-                {/* Right: Info Section */}
                 <div className="flex-1">
                     <h1 className="text-2xl md:text-3xl font-bold text-dark-blue mb-4">
                         {product.title}
@@ -65,7 +77,6 @@ const ProductDetails = () => {
                     <p className="text-2xl font-bold text-dark-blue mb-4">{product.price}</p>
                     <img src={product.rating} alt="Rating" className="w-[120px] mb-6" />
 
-                    {/* Select Color */}
                     <div className="mb-6">
                         <p className="font-medium text-dark-blue">Select Color</p>
                         <div className="flex gap-3 mt-2">
@@ -79,52 +90,55 @@ const ProductDetails = () => {
                             ))}
                         </div>
                     </div>
-
-                    {/* Quantity Selector */}
-                    <div className="mb-13">
+                    <div className="mb-10">
                         <p className="font-bold text-[#18314F] mb-2">Select Quantity</p>
                         <div className="flex items-center">
                             <div className="flex overflow-hidden rounded-[8px] border border-[#0000003D]">
-                                {/* Minus Button */}
                                 <button
                                     className="w-[48px] h-[44px] flex items-center justify-center text-white font-bold text-xl"
                                     style={{ backgroundColor: '#73A4E0' }}
-                                    onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                                    onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
                                 >
                                     −
                                 </button>
-
-                                {/* Quantity Display */}
                                 <span className="w-[85px] h-[44px] flex items-center justify-center text-base font-semibold text-dark-blue bg-white select-none border-y border-[#0000003D]">
                                     {String(quantity).padStart(2, "0")}
                                 </span>
-
-                                {/* Plus Button */}
                                 <button
                                     className="w-[48px] h-[44px] flex items-center justify-center text-white font-bold text-xl"
                                     style={{ backgroundColor: '#112D49' }}
-                                    onClick={() => setQuantity((prev) => prev + 1)}
+                                    onClick={() => setQuantity(prev => prev + 1)}
                                 >
                                     +
                                 </button>
                             </div>
                         </div>
                     </div>
-
-                    {/* Buttons - Responsive Layout */}
-                    <div className="flex flex-col  gap-4">
+                    <div className="flex flex-col gap-4 mt-6">
                         <Button
                             btnText="Buy Now"
                             btnClass="bg-dark-blue text-white px-6 py-3 rounded hover:bg-[#112D49] w-full sm:w-auto"
+                            onClick={() => {
+                                setShowSuccessPopup(true);
+                                setTimeout(() => setShowSuccessPopup(false), 2500);
+                            }}
                         />
                         <Button
                             btnText="Add to cart"
                             btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 py-3 rounded w-full sm:w-auto"
+                            onClick={() => {
+                                addToCart(product, quantity);
+                                setTimeout(() => {
+                                    navigate(`/cart/${slug}`);
+                                }, 0);
+                            }}
                         />
                     </div>
                 </div>
             </div>
-        </section>
+            <ProductTabs />
+            <PopularProducts />
+        </div>
     );
 };
 

@@ -92,3 +92,23 @@
   transition: box-shadow 0.3s ease;
   margin-bottom: 10px;
 }
+.gradient-border {
+  border-bottom: 1.5px solid;
+  border-image: linear-gradient(90deg, rgba(17, 45, 73, 0) 0%, #112D49 52.4%, rgba(17, 45, 73, 0) 100%) 1;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%) translateY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease forwards;
+}

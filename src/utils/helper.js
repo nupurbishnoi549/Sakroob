@@ -34,6 +34,9 @@ import blogImg1 from '../assets/images/png/blog-img1.png';
 import blogImg2 from '../assets/images/png/blog-img2.png';
 import blogImg3 from '../assets/images/png/blog-img3.png';
 import blogImg4 from '../assets/images/png/blog-img4.png';
+import pcCase from '../assets/images/png/pc-case.png';
+import getForce from '../assets/images/png/get-force.png';
+import fan from '../assets/images/png/fan.png';
 
 
 export const NAV_ITEMS = [
@@ -92,6 +95,18 @@ export const HERO_SLIDES = [
         text: 'Explore niche tech gear, DIY kits, and pro tools — built for creators, gamers, and engineers.',
         img: heroBg1,
     },
+    {
+        id: 4,
+        heading: 'Make. Test. Repeat.',
+        text: 'From concept to creation, unleash your tech skills with tools that inspire.',
+        img: heroBg1,
+    },
+    {
+        id: 5,
+        heading: 'Where Tinkerers Bring Ideas Alive',
+        text: 'Explore niche tech gear, DIY kits, and pro tools — built for creators, gamers, and engineers.',
+        img: heroBg1,
+    },
 ];
 export const BLOG_DATA = [
     {
@@ -123,7 +138,7 @@ export const BESTSELLERS_DATA = [
         img: gamingPc,
         title: 'Vortex Gaming PC',
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
-        price: '$249.99',
+        price: '₹ 12956.00',
         rating: ratingImage,
         slug: 'vortex-gaming-pc',
     },
@@ -131,7 +146,7 @@ export const BESTSELLERS_DATA = [
         img: wirelessRouter,
         title: 'D-Link ADSL Wireless Router DSL2790U',
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
-        price: '$179.99',
+        price: '₹ 15956.00',
         rating: ratingImage,
         slug: 'd-link-adsl-wireless-router-dsl2790u',
     },
@@ -139,7 +154,7 @@ export const BESTSELLERS_DATA = [
         img: gamingChair,
         title: 'Gaming Chair',
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
-        price: '$209.99',
+        price: '₹ 23956.00',
         rating: ratingImage,
         slug: 'gaming-chair',
     },
@@ -152,7 +167,29 @@ export const BESTSELLERS_DATA = [
         slug: 'd-link-adsl-wireless-router-dsl2790u-2',
     },
 ];
-
+export const POPULAR_PRODUCT = [
+    {
+        img: pcCase,
+        title: 'NZXT H510 Elite PC Case',
+        description: 'Tempered glass case with clean cable management and optimized airflow.',
+        price: '$249.99',
+        rating: ratingImage,
+    },
+    {
+        img: getForce,
+        title: 'MSI GeForce RTX 4070 GPU',
+        description: 'Ray tracing, AI-powered DLSS, and ultra-performance — redefine how you game.',
+        price: '$349.99',
+        rating: ratingImage,
+    },
+    {
+        img: fan,
+        title: 'Gaming fan',
+        description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
+        price: '$259.99',
+        rating: ratingImage,
+    },
+];
 export const FEATURES_LIST = [
     {
         icon: expressDelivery,
@@ -249,7 +286,3 @@ export const LEGAL_LINKS = [
     { label: "Term of Service", href: "#" },
     { label: "Privacy Policy", href: "#" },
 ];
-
-
-
-

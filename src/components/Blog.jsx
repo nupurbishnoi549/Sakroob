@@ -87,9 +87,6 @@ const Blog = () => {
             </div>
 
             <div className="flex justify-center mt-12">
-                {/* <button className="bg-[#00171F] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-90 transition">
-                    View All Blog Posts
-                </button> */}
                 <Button btnText="View All Blog Posts" btnClass="bg-dark-blue px-5 rounded-full text-white" />
             </div>
         </section>

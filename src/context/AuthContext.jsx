@@ -1,14 +1,23 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [users, setUsers] = useState([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(() => {
+        return localStorage.getItem('isAuthenticated') === 'true';
+    });
+
+    const [users, setUsers] = useState(() => {
+        const storedUsers = localStorage.getItem('users');
+        return storedUsers ? JSON.parse(storedUsers) : [];
+    });
+
     const [currentScreen, setCurrentScreen] = useState('login');
 
     const signup = (userData) => {
-        setUsers((prev) => [...prev, userData]);
+        const updatedUsers = [...users, userData];
+        setUsers(updatedUsers);
+        localStorage.setItem('users', JSON.stringify(updatedUsers));
         setCurrentScreen('login');
     };
 
@@ -18,6 +27,7 @@ export const AuthProvider = ({ children }) => {
         );
         if (matched) {
             setIsAuthenticated(true);
+            localStorage.setItem('isAuthenticated', 'true');
             return true;
         }
         return false;
@@ -25,11 +35,17 @@ export const AuthProvider = ({ children }) => {
 
     const logout = () => {
         setIsAuthenticated(false);
+        localStorage.setItem('isAuthenticated', 'false');
         setCurrentScreen('login');
     };
 
     const switchToSignup = () => setCurrentScreen('signup');
     const switchToLogin = () => setCurrentScreen('login');
+
+    // Sync users from localStorage if they change
+    useEffect(() => {
+        localStorage.setItem('users', JSON.stringify(users));
+    }, [users]);
 
     return (
         <AuthContext.Provider
