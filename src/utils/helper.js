@@ -125,6 +125,7 @@ export const BESTSELLERS_DATA = [
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
         price: '$249.99',
         rating: ratingImage,
+        slug: 'vortex-gaming-pc',
     },
     {
         img: wirelessRouter,
@@ -132,6 +133,7 @@ export const BESTSELLERS_DATA = [
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
         price: '$179.99',
         rating: ratingImage,
+        slug: 'd-link-adsl-wireless-router-dsl2790u',
     },
     {
         img: gamingChair,
@@ -139,6 +141,7 @@ export const BESTSELLERS_DATA = [
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
         price: '$209.99',
         rating: ratingImage,
+        slug: 'gaming-chair',
     },
     {
         img: wirelessRouter,
@@ -146,6 +149,7 @@ export const BESTSELLERS_DATA = [
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
         price: '$179.99',
         rating: ratingImage,
+        slug: 'd-link-adsl-wireless-router-dsl2790u-2',
     },
 ];
 

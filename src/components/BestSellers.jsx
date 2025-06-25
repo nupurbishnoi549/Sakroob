@@ -9,6 +9,7 @@ import cartIcon from '../assets/images/svg/cart-icon.svg';
 import leftArrow from '../assets/images/svg/left-arrow.svg';
 import rightArrow from '../assets/images/svg/right-arrow.svg';
 import Heading from './common/Heading.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const getImageStyle = (title) => {
     if (title.includes('Gaming PC')) return 'w-[220px] h-[260px] bottom-[-30px]';
@@ -18,6 +19,8 @@ const getImageStyle = (title) => {
 };
 
 const BestSellers = () => {
+    const navigate = useNavigate();
+
     return (
         <section className="xl:pb-[132px] lg:pb-24 pb-30 bg-white">
             <div className="max-w-[1284px] mx-auto px-4 sm:px-5">
@@ -47,7 +50,7 @@ const BestSellers = () => {
                             <SwiperSlide key={index} className="flex justify-center !overflow-visible">
                                 <div className="relative w-full max-w-[400px] h-[536px] bg-white border border-[#0000001A] shadow-md p-5 rounded-[8px] flex flex-col justify-between mx-auto">
                                     <img src={heartIcon} alt="Heart" className="absolute top-4 right-4 size-8 z-10" />
-                                    <div className="relative h-[200px] flex items-end justify-center overflow-visible z-">
+                                    <div className="relative h-[200px] flex items-end justify-center overflow-visible">
                                         <img
                                             src={item.img}
                                             alt={item.title}
@@ -64,9 +67,11 @@ const BestSellers = () => {
                                         <span className="text-xl sm:text-2xl font-semibold text-dark-blue">{item.price}</span>
                                         <img src={item.rating} alt="Rating" className="w-[100px] sm:w-[128px]" />
                                     </div>
-                                    <div className="flex items-center justify-between gap-4 mt-6">
-                                        <Button btnText="Shop Now"
-                                            btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 xl:px-[88px]" />
+                                    <div onClick={() => navigate(`/product/${item.slug}`)} className="cursor-pointer flex items-center justify-between gap-4 mt-">
+                                        <Button
+                                            btnText="Shop Now"
+                                            btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 xl:px-[88px]"
+                                        />
                                         <div className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center">
                                             <img src={cartIcon} alt="Cart" className="w-6 h-6" />
                                         </div>
