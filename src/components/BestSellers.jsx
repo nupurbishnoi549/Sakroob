@@ -10,6 +10,7 @@ import cartIcon from '../assets/images/svg/cart-icon.svg';
 import leftArrow from '../assets/images/svg/left-arrow.svg';
 import rightArrow from '../assets/images/svg/right-arrow.svg';
 import Heading from './common/Heading.jsx';
+import { useCart } from '../context/CartContext'; // ✅ Cart hook added
 
 const getImageSize = (title) => {
     if (title.includes('Gaming PC')) return 'w-[200px] h-[230px]';
@@ -21,13 +22,13 @@ const getImageSize = (title) => {
 const BestSellers = () => {
     const [wishlist, setWishlist] = useState([]);
     const [message, setMessage] = useState('');
+    const { addToCart } = useCart(); // ✅ Cart context hook
 
     const toggleWishlist = (slug) => {
         setWishlist((prev) => {
             const isAlready = prev.includes(slug);
             const updated = isAlready ? prev.filter((id) => id !== slug) : [...prev, slug];
             setMessage(isAlready ? 'Removed from wishlist' : 'Added to wishlist');
-
             setTimeout(() => setMessage(''), 2000);
             return updated;
         });
@@ -87,11 +88,18 @@ const BestSellers = () => {
                                         <Button
                                             btnText="Shop Now"
                                             onClick={() => {
-                                                window.location.href = `/product/${item.slug}`; // ✅ Updated for instant redirect without scroll
+                                                window.location.href = `/product/${item.slug}`;
                                             }}
                                             btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 xl:px-[88px]"
                                         />
-                                        <div className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center">
+                                        <div
+                                            className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer"
+                                            onClick={() => {
+                                                addToCart(item, 1); // ✅ Add to cart
+                                                setMessage('Added to cart');
+                                                setTimeout(() => setMessage(''), 2000);
+                                            }}
+                                        >
                                             <img src={cartIcon} alt="Cart" className="w-6 h-6" />
                                         </div>
                                     </div>

@@ -40,8 +40,9 @@ const Footer = ({ showSakroob = true }) => {
                             aria-label={social.alt}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="w-8 h-8 cursor-pointer"
                         >
-                            <img src={social.icon} alt={social.alt} className="size-8 cursor-pointer" />
+                            <social.icon className="w-8 h-8" />
                         </a>
                     ))}
                 </div>

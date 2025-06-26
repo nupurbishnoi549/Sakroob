@@ -6,7 +6,7 @@ import { useCart } from '../context/CartContext';
 import ProductTabs from '../components/ProductTabs';
 import PopularProducts from '../components/PopularProducts';
 
-const dummyColors = ['#000000', '#00B894', '#1E90FF'];
+const dummyColors = ['#EEF4FB', '#00B894', '#1E90FF'];
 
 const ProductDetails = () => {
     const { slug } = useParams();
@@ -38,7 +38,10 @@ const ProductDetails = () => {
 
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="flex-1">
-                    <div className="bg-[#EEF4FF] rounded-lg p-6 flex justify-center items-center">
+                    <div
+                        className="rounded-lg p-6 flex justify-center items-center transition-all duration-300"
+                        style={{ backgroundColor: selectedColor }}
+                    >
                         <img
                             src={selectedImage}
                             alt={product.title}

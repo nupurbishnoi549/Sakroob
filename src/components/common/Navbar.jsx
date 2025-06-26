@@ -59,7 +59,8 @@ const Navbar = () => {
                                     >
                                         {item.label}
                                         <FiChevronDown
-                                            className={`text-sm mt-1 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''}`}
+                                            className={`text-sm mt-1 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''
+                                                }`}
                                         />
                                     </button>
                                     {openDropdown === item.label && (
@@ -92,9 +93,9 @@ const Navbar = () => {
 
                 {/* Desktop Icons */}
                 <div className="hidden lg:flex items-center gap-4">
-                    {NAVBAR_ICONS.map((icon, index) => (
-                        <React.Fragment key={icon.alt}>
-                            <img src={icon.icon} alt={icon.alt} className="w-5 h-5 cursor-pointer" />
+                    {NAVBAR_ICONS.map(({ alt, icon: IconComponent }, index) => (
+                        <React.Fragment key={alt}>
+                            <IconComponent className="w-5 h-5 cursor-pointer" />
                             {index < NAVBAR_ICONS.length - 1 && <div className="w-[1px] h-6 bg-white" />}
                         </React.Fragment>
                     ))}
@@ -142,7 +143,8 @@ const Navbar = () => {
                                         >
                                             {item.label}
                                             <FiChevronDown
-                                                className={`mt-1 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''}`}
+                                                className={`mt-1 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''
+                                                    }`}
                                             />
                                         </button>
                                         {openDropdown === item.label && (
@@ -176,8 +178,8 @@ const Navbar = () => {
                         ))}
 
                         <div className="flex justify-center gap-6 pt-6">
-                            {NAVBAR_ICONS.map((icon) => (
-                                <img key={icon.alt} src={icon.icon} alt={icon.alt} className="w-5 h-5 cursor-pointer" />
+                            {NAVBAR_ICONS.map(({ alt, icon: IconComponent }) => (
+                                <IconComponent key={alt} className="w-5 h-5 cursor-pointer" />
                             ))}
                         </div>
                     </div>

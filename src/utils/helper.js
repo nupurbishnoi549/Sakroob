@@ -1,15 +1,9 @@
-import tvIcon from '../assets/images/svg/tv.svg';
-import smartwatchIcon from '../assets/images/svg/smartwatch.svg';
-import monitorsIcon from '../assets/images/svg/monitors.svg';
-import gameIcon from '../assets/images/svg/game.svg';
-import storageIcon from '../assets/images/svg/storage.svg';
-import graphicIcon from '../assets/images/svg/graphic-card.svg';
+import {
+    TvIcon, SmartwatchIcon, MonitorsIcon, GameIcon, StorageIcon, GraphicIcon,
+    ExpressDeliveryIcon, EasyReturnIcon, SupportIcon, PremiumWarrantyIcon,
+    SpecialGiftIcon, User, Wishlist, Cart, Profile, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon
+} from './Icons';
 import heroBg1 from '../assets/images/png/hero-img.png'
-import expressDelivery from '../assets/images/svg/express-delivery.svg';
-import easyReturn from '../assets/images/svg/easy-return.svg';
-import supportIcon from '../assets/images/svg/support.svg';
-import premiumWarranty from '../assets/images/svg/premium.svg';
-import specialGift from '../assets/images/svg/special-gift.svg';
 import testimonialImg from '../assets/images/png/william-gate-img.png';
 import testimonialImg2 from '../assets/images/png/darrell-img.png';
 import sensorImg from '../assets/images/png/sensor.png';
@@ -18,14 +12,6 @@ import diyImg from '../assets/images/png/diy.png';
 import cablesImg from '../assets/images/png/cables.png';
 import gamingImg from '../assets/images/png/gaming.png';
 import raspberryImg from '../assets/images/png/raspberry.png';
-import user from '../assets/images/svg/user.svg';
-import wishlist from '../assets/images/svg/wishlist.svg';
-import cart from '../assets/images/svg/cart.svg';
-import profile from '../assets/images/svg/profile.svg';
-import facebook from '../assets/images/svg/facebook.svg';
-import instagram from '../assets/images/svg/instagram.svg'
-import twitter from '../assets/images/svg/twitter.svg'
-import youtube from '../assets/images/svg/youtube.svg'
 import gamingChair from '../assets/images/png/gaming-chair.png';
 import wirelessRouter from '../assets/images/png/wireless-router.png';
 import gamingPc from '../assets/images/png/gaming-pc.png';
@@ -37,7 +23,6 @@ import blogImg4 from '../assets/images/png/blog-img4.png';
 import pcCase from '../assets/images/png/pc-case.png';
 import getForce from '../assets/images/png/get-force.png';
 import fan from '../assets/images/png/fan.png';
-
 
 export const NAV_ITEMS = [
     {
@@ -72,18 +57,18 @@ export const NAV_ITEMS = [
 ];
 
 export const NAVBAR_ICONS = [
-    { alt: 'User', icon: user },
-    { alt: 'Wishlist', icon: wishlist },
-    { alt: 'Cart', icon: cart },
-    { alt: 'Profile', icon: profile },
+    { alt: 'User', icon: User },
+    { alt: 'Wishlist', icon: Wishlist },
+    { alt: 'Cart', icon: Cart, to: '/cart' },
+    { alt: 'Profile', icon: Profile },
 ];
 export const CATEGORY_DATA = [
-    { id: 1, title: "Televisions", icon: tvIcon },
-    { id: 2, title: "Smartwatch", icon: smartwatchIcon },
-    { id: 3, title: "Monitors", icon: monitorsIcon },
-    { id: 4, title: "Game", icon: gameIcon },
-    { id: 5, title: "Storage (SSD)", icon: storageIcon },
-    { id: 6, title: "Graphic Card", icon: graphicIcon },
+    { id: 1, title: "Televisions", icon: TvIcon },
+    { id: 2, title: "Smartwatch", icon: SmartwatchIcon },
+    { id: 3, title: "Monitors", icon: MonitorsIcon },
+    { id: 4, title: "Game", icon: GameIcon },
+    { id: 5, title: "Storage (SSD)", icon: StorageIcon },
+    { id: 6, title: "Graphic Card", icon: GraphicIcon },
 ];
 export const HERO_SLIDES = [
     {
@@ -140,6 +125,33 @@ export const BLOG_DATA = [
         imgRight: blogImg4,
         bg: 'bg-[#D6ECFF]',
         fullWidth: true,
+    },
+];
+export const FEATURES_LIST = [
+    {
+        icon: ExpressDeliveryIcon,
+        title: 'EXPRESS Delivery',
+        text: 'Order Now',
+    },
+    {
+        icon: EasyReturnIcon,
+        title: 'Easy Return',
+        text: '30 days return',
+    },
+    {
+        icon: SupportIcon,
+        title: '24/7 Support',
+        text: 'Premium Services',
+    },
+    {
+        icon: PremiumWarrantyIcon,
+        title: 'Premium Warranty',
+        text: 'Up to 2 years',
+    },
+    {
+        icon: SpecialGiftIcon,
+        title: 'Best Special Gift',
+        text: 'For Order',
     },
 ];
 export const BESTSELLERS_DATA = [
@@ -199,33 +211,7 @@ export const POPULAR_PRODUCT = [
         rating: ratingImage,
     },
 ];
-export const FEATURES_LIST = [
-    {
-        icon: expressDelivery,
-        title: 'EXPRESS Delivery',
-       text: 'Order Now',
-    },
-    {
-        icon: easyReturn,
-        title: 'Easy Return',
-       text: '30 days return',
-    },
-    {
-        icon: supportIcon,
-        title: '24/7 Support',
-       text: 'Premium Services',
-    },
-    {
-        icon: premiumWarranty,
-        title: 'Premium Warranty',
-       text: 'Up to 2 years',
-    },
-    {
-        icon: specialGift,
-        title: 'Best Special Gift',
-       text: 'For Order',
-    },
-];
+
 export const TESTIMONIALS_DATA = [
     {
         title: "William Gate",
@@ -286,12 +272,11 @@ export const NAV_LINKS = [
     { label: "Contact", href: "#" },
 ];
 export const SOCIALS = [
-    { alt: "Facebook", href: "https://www.facebook.com/", icon: facebook },
-    { alt: "Instagram", href: "https://www.instagram.com/", icon: instagram },
-    { alt: "X", href: "https://twitter.com/", icon: twitter }, // formerly Twitter
-    { alt: "YouTube", href: "https://www.youtube.com/", icon: youtube },
+    { alt: "Facebook", href: "https://www.facebook.com/", icon: FacebookIcon },
+    { alt: "Instagram", href: "https://www.instagram.com/", icon: InstagramIcon },
+    { alt: "X", href: "https://twitter.com/", icon: TwitterIcon }, // formerly Twitter
+    { alt: "YouTube", href: "https://www.youtube.com/", icon: YoutubeIcon },
 ];
-
 export const LEGAL_LINKS = [
     { label: "Term of Service", href: "#" },
     { label: "Privacy Policy", href: "#" },

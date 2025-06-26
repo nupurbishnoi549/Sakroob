@@ -9,11 +9,9 @@ const FeatureBanner = () => {
                     <React.Fragment key={index}>
                         <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 w-full sm:w-auto">
                             <div className="bg-[#6ba3e6] sm:bg-transparent size-14 sm:size-[47px] rounded-full sm:rounded-none flex items-center justify-center">
-                                <img
-                                    src={feature.icon}
-                                    alt={feature.title}
-                                    className="w-6 h-6 sm:w-[47px] sm:h-[47px]"
-                                />
+                                <div className="w-6 h-6 sm:w-[47px] sm:h-[47px]">
+                                    {feature.icon && <feature.icon />}
+                                </div>
                             </div>
                             <div>
                                 <p className="font-bold text-black">{feature.title}</p>
