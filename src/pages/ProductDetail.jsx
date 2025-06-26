@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { BESTSELLERS_DATA } from '../utils/helper';
 import Button from '../components/common/Button';
 import { useCart } from '../context/CartContext';
 import ProductTabs from '../components/ProductTabs';
@@ -13,16 +12,27 @@ const ProductDetails = () => {
     const navigate = useNavigate();
     const { addToCart } = useCart();
 
+    const [selectedColor, setSelectedColor] = useState(dummyColors[0]);
+    const [quantity, setQuantity] = useState(1);
+    const [selectedImage, setSelectedImage] = useState('');
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+    const [product, setProduct] = useState(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    const product = BESTSELLERS_DATA.find(item => item.slug === slug);
-
-    const [selectedColor, setSelectedColor] = useState(dummyColors[0]);
-    const [quantity, setQuantity] = useState(1);
-    const [selectedImage, setSelectedImage] = useState(product?.img);
-    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+    useEffect(() => {
+        fetch('/data/products.json')
+            .then(res => res.json())
+            .then(data => {
+                const found = data.find(p => p.slug === slug);
+                if (found) {
+                    setProduct(found);
+                    setSelectedImage(found.img);
+                }
+            });
+    }, [slug]);
 
     if (!product) {
         return <div className="text-center mt-20 text-xl">Product not found.</div>;
@@ -76,7 +86,7 @@ const ProductDetails = () => {
                         {product.title}
                     </h1>
                     <p className="text-gray-600 text-base mb-4 max-w-xl">
-                        The D-Link DSL-2790U is a high-speed ADSL2+ wireless router with speeds up to 300 Mbps—ideal for browsing, streaming, and gaming. It features four Ethernet ports, strong security, and guest network support. Perfect for reliable internet in homes and small offices.
+                        {product.description}
                     </p>
                     <p className="text-2xl font-bold text-dark-blue mb-4">{product.price}</p>
                     <img src={product.rating} alt="Rating" className="w-[120px] mb-6" />
