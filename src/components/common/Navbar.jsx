@@ -46,6 +46,8 @@ const Navbar = () => {
                 <a href="/" className="flex items-center md:w-[115px] w-22 md:h-[93px] h-22 cursor-pointer">
                     <img src={logo} alt="Logo" className="w-full h-full object-contain md:mt-7" />
                 </a>
+
+                {/* Desktop Nav */}
                 <div className="hidden lg:flex items-center gap-6" ref={dropdownRef}>
                     {NAV_ITEMS.map((item) => (
                         <div key={item.label} className="relative group">
@@ -57,8 +59,8 @@ const Navbar = () => {
                                     >
                                         {item.label}
                                         <FiChevronDown
-                                            className={`text-sm mt-1 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''
-                                                }`} />
+                                            className={`text-sm mt-1 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''}`}
+                                        />
                                     </button>
                                     {openDropdown === item.label && (
                                         <div className="absolute left-0 top-full mt-2 bg-white text-[#0A2740] shadow-md rounded-md py-2 w-56 z-30">
@@ -87,18 +89,24 @@ const Navbar = () => {
                         </div>
                     ))}
                 </div>
+
+                {/* Desktop Icons */}
                 <div className="hidden lg:flex items-center gap-4">
-                    {NAVBAR_ICONS.map(({ alt, icon: IconComponent }, index) => (
-                        <React.Fragment key={alt}>
-                            <IconComponent className="w-5 h-5 cursor-pointer" />
+                    {NAVBAR_ICONS.map((icon, index) => (
+                        <React.Fragment key={icon.alt}>
+                            <img src={icon.icon} alt={icon.alt} className="w-5 h-5 cursor-pointer" />
                             {index < NAVBAR_ICONS.length - 1 && <div className="w-[1px] h-6 bg-white" />}
                         </React.Fragment>
                     ))}
                 </div>
+
+                {/* Hamburger Button */}
                 <button className="lg:hidden z-50 cursor-pointer" onClick={() => setMenuOpen(true)}>
                     <FiMenu size={24} />
                 </button>
             </div>
+
+            {/* Search Bar */}
             <div className="bg-[#F1F6FC] py-6 lg:py-4 px-4">
                 <div className="max-w-[689px] mx-auto relative group">
                     <input
@@ -113,6 +121,8 @@ const Navbar = () => {
                     />
                 </div>
             </div>
+
+            {/* Mobile Menu */}
             {menuOpen && (
                 <div className="fixed inset-0 bg-[#0A2740] z-50 overflow-y-auto text-white">
                     <div className="flex justify-end p-4">
@@ -120,6 +130,7 @@ const Navbar = () => {
                             <FiX size={24} />
                         </button>
                     </div>
+
                     <div className="flex flex-col items-center gap-4 mt-6 px-4" ref={dropdownRef}>
                         {NAV_ITEMS.map((item) => (
                             <div key={item.label} className="text-center w-full">
@@ -131,8 +142,7 @@ const Navbar = () => {
                                         >
                                             {item.label}
                                             <FiChevronDown
-                                                className={`mt-1 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''
-                                                    }`}
+                                                className={`mt-1 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''}`}
                                             />
                                         </button>
                                         {openDropdown === item.label && (
@@ -164,9 +174,10 @@ const Navbar = () => {
                                 )}
                             </div>
                         ))}
+
                         <div className="flex justify-center gap-6 pt-6">
-                            {NAVBAR_ICONS.map(({ alt, icon: IconComponent }) => (
-                                <IconComponent key={alt} className="w-5 h-5 cursor-pointer" />
+                            {NAVBAR_ICONS.map((icon) => (
+                                <img key={icon.alt} src={icon.icon} alt={icon.alt} className="w-5 h-5 cursor-pointer" />
                             ))}
                         </div>
                     </div>

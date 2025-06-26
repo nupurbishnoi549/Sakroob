@@ -53,8 +53,6 @@ const Login = () => {
             clearErrors();
             return;
         }
-
-        // Simulate check if email is registered
         const users = JSON.parse(localStorage.getItem('users') || '[]');
         const exists = users.find(u => u.email === email);
 

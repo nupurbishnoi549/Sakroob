@@ -41,10 +41,7 @@ const MinimalLayout = ({ children, showFooter = true, showSakroob = true }) => (
 );
 
 const AppRoutes = () => {
-  const { isAuthenticated, currentUser } = useAuth();
-
-  console.log('🔐 Authenticated:', isAuthenticated);
-  console.log('👤 Current User:', currentUser);
+  const { isAuthenticated } = useAuth();
 
   return (
     <Routes>
@@ -54,12 +51,11 @@ const AppRoutes = () => {
           isAuthenticated ? <HomeLayout /> : <Navigate to="/login" replace />
         }
       />
-
       <Route
         path="/product/:slug"
         element={
           isAuthenticated ? (
-            <MinimalLayout showFooter={true} showSakroob={true}>
+            <MinimalLayout>
               <ProductDetails />
             </MinimalLayout>
           ) : (
@@ -67,12 +63,11 @@ const AppRoutes = () => {
           )
         }
       />
-
       <Route
         path="/cart/:slug"
         element={
           isAuthenticated ? (
-            <MinimalLayout showFooter={true} showSakroob={false}>
+            <MinimalLayout showFooter={false}>
               <Cart />
             </MinimalLayout>
           ) : (
@@ -80,12 +75,11 @@ const AppRoutes = () => {
           )
         }
       />
-
       <Route
         path="/checkout/:slug"
         element={
           isAuthenticated ? (
-            <MinimalLayout showFooter={true} showSakroob={false}>
+            <MinimalLayout showFooter={false}>
               <Checkout />
             </MinimalLayout>
           ) : (
@@ -93,8 +87,6 @@ const AppRoutes = () => {
           )
         }
       />
-
-      {/* Public Routes */}
       <Route
         path="/login"
         element={!isAuthenticated ? <Login /> : <Navigate to="/" replace />}
@@ -103,18 +95,15 @@ const AppRoutes = () => {
         path="/signup"
         element={!isAuthenticated ? <Signup /> : <Navigate to="/" replace />}
       />
-
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };
 
-const App = () => {
-  return (
-    <Router>
-      <AppRoutes />
-    </Router>
-  );
-};
+const App = () => (
+  <Router>
+    <AppRoutes />
+  </Router>
+);
 
 export default App;

@@ -26,7 +26,6 @@ const CheckOut = () => {
             <div className="min-h-screen py-[120px] overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-3">
                     <div className="flex flex-col lg:flex-row gap-6">
-                        {/* Left Section */}
                         <div className="w-full lg:w-8/12">
                             <div className="flex flex-wrap justify-between">
                                 <p className="font-bold text-2xl leading-[120%] text-[#112D49]">Contact</p>
@@ -39,8 +38,6 @@ const CheckOut = () => {
                                     <img src={under} alt="under" className="hidden sm:block" />
                                 </div>
                             </div>
-
-                            {/* Delivery Section */}
                             <p className="font-bold text-2xl leading-[120%] text-[#112D49] pt-[35px]">Delivery</p>
                             <div className="flex flex-col bg-[#F4F8F7] py-[13px] px-[26px] rounded-xl w-full mt-[20px]">
                                 <label className="text-xs leading-[150%] text-[#8393A0]">Country/ Region</label>
@@ -84,21 +81,14 @@ const CheckOut = () => {
                                 <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
                                 <p className="leading-[150%] text-[#41576D]">Save this information for next time</p>
                             </div>
-
-                            {/* Shipping */}
                             <p className="text-lg leading-[150%] text-[#112D49] pt-[42px]">Shipping method</p>
                             <div className="flex justify-between items-center bg-[#F4F8F7] py-[13px] px-[26px] rounded-xl w-full mt-[20px]">
                                 <input type="text" placeholder="Standard (Example)" className="outline-0 text-[#112D49] w-full" />
                                 <p className="font-semibold leading-[150%] text-[#112D49] whitespace-nowrap ml-4">AED 20.00</p>
                             </div>
-
-                            {/* Payment */}
                             <p className="font-bold text-2xl leading-[120%] text-[#112D49] pt-[42px]">Payment</p>
                             <p className="leading-[150%] text-[#41576D] pt-[4px]">All transactions are secure and encrypted.</p>
-
-                            {/* Payment Options */}
                             <div className="border border-[#E8EBED] py-[20px] px-[28px] mt-[20px]">
-                                {/* PayPal */}
                                 <div className="flex justify-between flex-wrap">
                                     <div className="flex gap-[8px] items-center">
                                         <label className="inline-flex items-center cursor-pointer">
@@ -111,8 +101,6 @@ const CheckOut = () => {
                                     </div>
                                     <img src={creditCard} alt="creditCard" />
                                 </div>
-
-                                {/* Card Option */}
                                 <div className="flex gap-[8px] items-center pt-[34px]">
                                     <label className="inline-flex items-center cursor-pointer">
                                         <input type="radio" name="payment" value="card" checked={selected === "card"} onChange={() => setSelected("card")} className="sr-only" />
@@ -122,7 +110,6 @@ const CheckOut = () => {
                                     </label>
                                     <p className="leading-[150%] text-[#40566D]">Credit Card/ Debit Card</p>
                                 </div>
-
                                 {selected === "card" && (
                                     <>
                                         <div className="flex flex-col md:flex-row justify-between gap-[28px]">
@@ -147,8 +134,6 @@ const CheckOut = () => {
                                         </div>
                                     </>
                                 )}
-
-                                {/* Bank Transfer */}
                                 <div className="flex items-center gap-[8px] mt-[48px]">
                                     <label className="inline-flex items-center cursor-pointer">
                                         <input type="radio" name="payment" value="bank" checked={selected === "bank"} onChange={() => setSelected("bank")} className="sr-only" />
@@ -171,8 +156,6 @@ const CheckOut = () => {
                                 )}
                             </div>
                         </div>
-
-                        {/* Right Section */}
                         <div className="w-full lg:w-4/12 relative overflow-visible mt-10 lg:mt-0">
                             <div className={`absolute top-[-50px] right-0 bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded-md shadow-md text-sm z-10 transition-transform duration-500 ease-out ${couponApplied ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}>
                                 Coupon Applied Successfully!

@@ -25,7 +25,7 @@ const Blog = () => {
                                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-dark-blue">
                                     {blog.title}
                                 </h3>
-                                <p className="text-dark-blue mt-2 text-sm sm:text-base">{blog.desc}</p>
+                                <p className="text-dark-blue mt-2 text-sm sm:text-base">{blog.description}</p>
                                 <div className="mt-4 flex justify-center">
                                     <button className="text-dark-blue font-medium flex items-center gap-1 group">
                                         {blog.cta}

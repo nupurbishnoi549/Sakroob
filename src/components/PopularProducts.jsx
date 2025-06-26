@@ -12,7 +12,7 @@ const PopularProducts = () => {
 
     const handleExploreClick = () => {
         setShowPopup(true);
-        setTimeout(() => setShowPopup(false), 2500); // auto-hide after 2.5 sec
+        setTimeout(() => setShowPopup(false), 2500); 
     };
 
     return (
@@ -35,20 +35,16 @@ const PopularProducts = () => {
                                     className="absolute top-[-31%] w-[180px] h-[240px] sm:w-[206px] sm:h-[274px] object-contain"
                                 />
                             </div>
-
                             <h3 className="text-[16px] sm:text-[18px] font-semibold text-[#0F3D68] mt-5 leading-snug">
                                 {item.title}
                             </h3>
-
                             <p className="text-[12px] sm:text-[13px] text-[#7D8FA9] mt-2 leading-normal">
                                 Tempered glass case with clean cable management and optimized airflow.
                             </p>
-
                             <div className="flex justify-between items-center mt-4">
                                 <span className="text-lg sm:text-xl font-semibold text-dark-blue">{item.price}</span>
                                 <img src={item.rating} alt="Rating" className="w-[90px] sm:w-[110px]" />
                             </div>
-
                             <div className="mt-5 cursor-pointer flex items-center justify-between gap-4">
                                 <Button
                                     btnText="Shop Now"
@@ -62,7 +58,6 @@ const PopularProducts = () => {
                     );
                 })}
             </div>
-
             <div className="flex justify-center mt-10">
                 <Button
                     btnText="Explore All Products"
@@ -70,8 +65,6 @@ const PopularProducts = () => {
                     onClick={handleExploreClick}
                 />
             </div>
-
-            {/* Popup Message */}
             {showPopup && (
                 <div className="fixed bottom-6 right-6 bg-[#112D49] text-white px-4 py-3 rounded-md shadow-lg z-50 animate-slide-in">
                     More products coming soon!

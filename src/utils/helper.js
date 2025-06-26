@@ -1,8 +1,12 @@
 import {
     TvIcon, SmartwatchIcon, MonitorsIcon, GameIcon, StorageIcon, GraphicIcon,
     ExpressDeliveryIcon, EasyReturnIcon, SupportIcon, PremiumWarrantyIcon,
-    SpecialGiftIcon, User, Wishlist, Cart, Profile, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon
+    SpecialGiftIcon, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon
 } from './Icons';
+import user from '../assets/images/svg/user.svg';
+import wishlist from '../assets/images/svg/wishlist.svg';
+import cart from '../assets/images/svg/cart.svg';
+import profile from '../assets/images/svg/profile.svg';
 import heroBg1 from '../assets/images/png/hero-img.png'
 import testimonialImg from '../assets/images/png/william-gate-img.png';
 import testimonialImg2 from '../assets/images/png/darrell-img.png';
@@ -57,10 +61,10 @@ export const NAV_ITEMS = [
 ];
 
 export const NAVBAR_ICONS = [
-    { alt: 'User', icon: User },
-    { alt: 'Wishlist', icon: Wishlist },
-    { alt: 'Cart', icon: Cart, to: '/cart' },
-    { alt: 'Profile', icon: Profile },
+    { alt: 'User', icon: user }, 
+    { alt: 'Wishlist', icon: wishlist },
+    { alt: 'Cart', icon: cart },
+    { alt: 'Profile', icon: profile },
 ];
 export const CATEGORY_DATA = [
     { id: 1, title: "Televisions", icon: TvIcon },
@@ -105,21 +109,21 @@ export const HERO_SLIDES = [
 export const BLOG_DATA = [
     {
         title: 'How to Build a Mini NAS',
-        desc: 'Learn to build your own network storage system with simple components.',
+        description: 'Learn to build your own network storage system with simple components.',
         cta: 'Read Guide',
         img: blogImg1,
         bg: 'bg-[#F0F0F0]',
     },
     {
         title: '5 Tools Every Maker Should Own',
-        desc: 'The essential toolkit for every DIY electronics enthusiast.',
+        description: 'The essential toolkit for every DIY electronics enthusiast.',
         cta: 'Read Article',
         img: blogImg2,
         bg: 'bg-[#E8F2FF]',
     },
     {
         title: 'Inside a Raspberry Pi Retro Console',
-        desc: 'Step-by-step log of building a retro game machine.',
+        description: 'Step-by-step log of building a retro game machine.',
         cta: 'View Build Log',
         imgLeft: blogImg3,
         imgRight: blogImg4,

@@ -14,7 +14,6 @@ const ProductDetails = ({ data }) => {
 
     return (
         <div className="bg-[#F8FAFC] py-8 px-4 max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
-            {/* Left: Images */}
             <div>
                 <img
                     src={images[0] || fallbackImage}
@@ -32,21 +31,15 @@ const ProductDetails = ({ data }) => {
                     ))}
                 </div>
             </div>
-
-            {/* Right: Info */}
             <div>
                 <h1 className="text-2xl font-semibold mb-2">{title}</h1>
                 <p className="mb-4 text-gray-600">{description}</p>
                 <p className="text-xl font-bold mb-2">{price}</p>
-
-                {/* Rating */}
                 <div className="flex gap-1 mb-4">
                     {[...Array(rating)].map((_, i) => (
                         <span key={i}>⭐</span>
                     ))}
                 </div>
-
-                {/* Color Picker */}
                 <div className="mb-4">
                     <p className="font-medium">Select Color</p>
                     <div className="flex gap-3 mt-2">
@@ -59,8 +52,6 @@ const ProductDetails = ({ data }) => {
                         ))}
                     </div>
                 </div>
-
-                {/* Quantity Selector */}
                 <div className="mb-6">
                     <p className="font-medium">Select Quantity</p>
                     <div className="flex items-center mt-2 border rounded w-max px-2">
@@ -69,8 +60,6 @@ const ProductDetails = ({ data }) => {
                         <button className="px-2">+</button>
                     </div>
                 </div>
-
-                {/* Action Buttons */}
                 <div className="flex gap-4">
                     <button className="bg-[#0A2740] text-white px-6 py-2 rounded">
                         Buy Now
