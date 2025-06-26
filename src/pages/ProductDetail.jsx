@@ -31,11 +31,10 @@ const ProductDetails = () => {
     return (
         <div className="py-12 px-4 max-w-[1284px] mx-auto relative">
             {showSuccessPopup && (
-                <div className="fixed bottom-6 right-6 bg-dark-blue text-white px-4 py-3 rounded shadow-lg z-50 animate-slide-in">
-                    <p className="text-sm font-semibold">Order placed successfully! 🎉</p>
+                <div className="fixed bottom-6 right-6 bg-dark-blue text-white px-4 py-2 rounded-md shadow-lg z-50 animate-slide-in">
+                    <p className="text-sm font-medium">Added to orders ✅</p>
                 </div>
             )}
-
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="flex-1">
                     <div
@@ -100,7 +99,7 @@ const ProductDetails = () => {
                         <div className="flex items-center">
                             <div className="flex overflow-hidden rounded-[8px] border border-[#0000003D]">
                                 <button
-                                    className="w-[48px] h-[44px] flex items-center justify-center text-white font-bold text-xl"
+                                    className="w-[48px] h-[44px] cursor-pointer flex items-center justify-center text-white font-bold text-xl"
                                     style={{ backgroundColor: '#73A4E0' }}
                                     onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
                                 >
@@ -110,7 +109,7 @@ const ProductDetails = () => {
                                     {String(quantity).padStart(2, "0")}
                                 </span>
                                 <button
-                                    className="w-[48px] h-[44px] flex items-center justify-center text-white font-bold text-xl"
+                                    className="w-[48px] h-[44px] cursor-pointer flex items-center justify-center text-white font-bold text-xl"
                                     style={{ backgroundColor: '#112D49' }}
                                     onClick={() => setQuantity(prev => prev + 1)}
                                 >
@@ -135,9 +134,7 @@ const ProductDetails = () => {
                             btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 py-3 rounded w-full sm:w-auto"
                             onClick={() => {
                                 addToCart(product, quantity);
-                                navigate(`/cart/${slug}`, {
-                                    state: { from: `/product/${slug}` }
-                                });
+                                window.location.href = `/cart/${slug}`;
                             }}
                         />
                     </div>

@@ -17,6 +17,7 @@ import Signup from './pages/Signup';
 import ProductDetails from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/CheckOut';
+import BackToTop from './components/BackToTop';
 
 const HomeLayout = () => (
   <>
@@ -29,6 +30,7 @@ const HomeLayout = () => (
     <Blog />
     <TestimonialSwiper />
     <Footer />
+    <BackToTop/>
   </>
 );
 
@@ -67,7 +69,7 @@ const AppRoutes = () => {
         path="/cart/:slug"
         element={
           isAuthenticated ? (
-            <MinimalLayout showFooter={false}>
+            <MinimalLayout showSakroob={false}>
               <Cart />
             </MinimalLayout>
           ) : (
@@ -75,11 +77,12 @@ const AppRoutes = () => {
           )
         }
       />
+
       <Route
         path="/checkout/:slug"
         element={
           isAuthenticated ? (
-            <MinimalLayout showFooter={false}>
+            <MinimalLayout showSakroob={false}>
               <Checkout />
             </MinimalLayout>
           ) : (
@@ -87,6 +90,7 @@ const AppRoutes = () => {
           )
         }
       />
+
       <Route
         path="/login"
         element={!isAuthenticated ? <Login /> : <Navigate to="/" replace />}

@@ -59,12 +59,13 @@ const Testimonials = () => {
                     ))}
                 </Swiper>
                 <div>
-                    <button className="prev-btn absolute left-[37%] md:left-[43%] bottom-[-4%] lg:left-[-24px] xl:left-[-5%] lg:top-1/2 -translate-y-1/2 cursor-pointer p-2 z-10">
+                    <button className="prev-btn absolute left-[37%] md:left-[43%] bottom-[-4%] lg:left-[-24px] xl:left-[-5%] lg:top-1/2 -translate-y-1/2 cursor-pointer p-2 z-10 transition-transform duration-300 hover:scale-110">
                         <img src={leftArrow} alt="Prev" className="w-7 md:w-8" />
                     </button>
-                    <button className="next-btn absolute right-[37%] md:right-[43%] bottom-[-4%] lg:right-[-24px] xl:right-[-5%] lg:top-1/2 -translate-y-1/2 cursor-pointer p-2 z-10">
+                    <button className="next-btn absolute right-[37%] md:right-[43%] bottom-[-4%] lg:right-[-24px] xl:right-[-5%] lg:top-1/2 -translate-y-1/2 cursor-pointer p-2 z-10 transition-transform duration-300 hover:scale-110">
                         <img src={rightArrow} alt="Next" className="w-7 md:w-8" />
                     </button>
+
                 </div>
             </div>
         </div>

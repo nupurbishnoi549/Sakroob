@@ -8,10 +8,7 @@ const SakroobCircle = () => {
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
 
-    const validateEmail = (email) => {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    };
+    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
     const handleSubmit = () => {
         if (!email) {
@@ -28,16 +25,14 @@ const SakroobCircle = () => {
     };
 
     const clearErrorAfterDelay = () => {
-        setTimeout(() => {
-            setError('');
-        }, 3000); 
+        setTimeout(() => setError(''), 3000);
     };
 
     return (
         <div className="flex items-center justify-center">
             <div className="container xl:w-[1140px] lg:w-[883px] md:w-[725px] mx-auto">
                 <div
-                    className="relative bg-cover bg-center bg-no-repeat rounded-[24px] overflow-hidden"
+                    className="relative bg-cover bg-center bg-no-repeat rounded-[24px] overflow-hidden z-10"
                     style={{ backgroundImage: `url(${bgImage})` }}
                 >
                     <div className="absolute inset-0 bg-[#73A4E0] opacity-75 rounded-[24px]" />
@@ -47,25 +42,27 @@ const SakroobCircle = () => {
                             descriptionText="Exclusive drops, early access, and maker tips in your inbox."
                             descriptionClass="!pt-4 !text-white pb-[46px]"
                         />
-
-                        <div className="flex items-center justify-between max-w-[489px] w-full mx-auto bg-white border border-[#00000033] rounded-full px-4 sm:px-5 py-2">
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter your email..."
-                                className="flex-1 bg-transparent outline-none text-sm sm:text-base text-dark-blue placeholder:text-[#00171F] placeholder:opacity-50 placeholder:font-normal mr-3"
-                            />
-                            <Button
-                                btnText="Join Now"
-                                btnClass="!px-5 py-2 text-white bg-dark-blue rounded-full text-sm sm:text-base"
-                                onClick={handleSubmit}
-                            />
+                        <div className="relative max-w-[489px] w-full mx-auto">
+                            <div className="flex items-center justify-between bg-white border border-[#00000033] rounded-full px-4 sm:px-5 py-2">
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Enter your email..."
+                                    className="flex-1 bg-transparent outline-none text-sm sm:text-base text-dark-blue placeholder:text-[#00171F] placeholder:opacity-50 placeholder:font-normal mr-3"
+                                />
+                                <Button
+                                    btnText="Join Now"
+                                    btnClass="!px-5 py-2 text-white bg-dark-blue rounded-full text-sm sm:text-base"
+                                    onClick={handleSubmit}
+                                />
+                            </div>
+                            {error && (
+                                <p className="absolute left-4 -bottom-5 text-red-600 text-sm font-medium">
+                                    {error}
+                                </p>
+                            )}
                         </div>
-
-                        {error && (
-                            <p className="text-red-600 text-sm font-medium mt-1">{error}</p>
-                        )}
                     </div>
                 </div>
             </div>

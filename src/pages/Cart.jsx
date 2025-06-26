@@ -48,7 +48,7 @@ const Cart = () => {
                 </div>
                 <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-0 items-center px-6 py-8 border-t bg-[#F8F9FA]">
                     <div className="flex items-center gap-4 w-full md:w-1/2">
-                        <div className="relative w-[85px] h-[85px] border border-[#00000033] rounded-lg bg-[#E9E9E9]">
+                        <div className="relative w-[120px] h-[120px] border border-[#00000033] rounded-lg bg-[#E9E9E9]">
                             <img src={product.img} alt={product.title} className="w-full h-full object-contain" />
                             <span className="absolute top-[-12px] right-[-12px] bg-[#C7C7C7] text-white text-xs font-semibold px-3 py-[6px] rounded-full shadow-lg">
                                 {product.quantity}
@@ -62,7 +62,7 @@ const Cart = () => {
                     <div className="flex items-center gap-3 w-full md:w-1/4 justify-center">
                         <div className="flex overflow-hidden rounded border border-[#0000003D]">
                             <button
-                                className="w-[36px] h-[36px] flex items-center justify-center text-white text-lg font-bold"
+                                className="w-[36px] h-[36px] cursor-pointer flex items-center justify-center text-white text-lg font-bold"
                                 style={{ backgroundColor: '#73A4E0' }}
                                 onClick={handleDecrement}
                             >
@@ -72,7 +72,7 @@ const Cart = () => {
                                 {String(product.quantity).padStart(2, '0')}
                             </span>
                             <button
-                                className="w-[36px] h-[36px] flex items-center justify-center text-white text-lg font-bold"
+                                className="w-[36px] h-[36px] cursor-pointer flex items-center justify-center text-white text-lg font-bold"
                                 style={{ backgroundColor: '#112D49' }}
                                 onClick={handleIncrement}
                             >
@@ -84,7 +84,7 @@ const Cart = () => {
                                 removeFromCart(product.slug);
                                 navigate(fromPage);
                             }}
-                            className="w-[36px] h-[36px] flex items-center justify-center opacity-70 hover:opacity-100 transition"
+                            className="w-[36px] h-[36px] cursor-pointer flex items-center justify-center opacity-70 hover:opacity-100 transition"
                         >
                             <img src={trash} alt="Delete" className="size-8" />
                         </button>

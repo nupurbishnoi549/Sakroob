@@ -15,12 +15,12 @@ const Footer = ({ showSakroob = true }) => {
     return (
         <div className={`bg-dark-blue text-white ${topPaddingClass} pb-4 px-4 relative`}>
             {showSakroob && !isProductOrCart && (
-                <div className='absolute top-[-34%] xl:left-[11%] lg:left-[7%] md:left-[3%] left-0 max-md:px-3'>
+                <div className='absolute top-[-34%]  xl:left-[11%] lg:left-[7%] md:left-[3%] left-0 max-md:px-3'>
                     <SakroobCircle />
                 </div>
             )}
 
-            <div className="max-w-xl mx-auto flex flex-col items-center text-center">
+            <div className="max-w-xl  mx-auto flex flex-col items-center text-center">
                 <img src={footerLogo} alt="Sakroob" className="w-[176px] h-[142px] mb-4" />
                 <Description
                     descriptionText="Commodo egestas etiam arcu curabitur aliquam volutpat a gravida."
@@ -40,12 +40,13 @@ const Footer = ({ showSakroob = true }) => {
                             aria-label={social.alt}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-8 h-8 cursor-pointer"
+                            className="w-8 h-8 cursor-pointer transition-transform duration-300 hover:scale-110"
                         >
-                            <social.icon className="w-8 h-8" />
+                            <social.icon className="w-8 h-8 text-white hover:text-[#73A4E0] transition-colors duration-300" />
                         </a>
                     ))}
                 </div>
+
 
             </div>
 

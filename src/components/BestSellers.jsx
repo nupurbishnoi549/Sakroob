@@ -99,12 +99,13 @@ const BestSellers = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <button className="custom-prev sm:flex absolute xl:left-[-50px] md:left-[40%] lg:left-[43%] bottom-[-17%] lg:bottom-[-15%] left-[36%] xl:bottom-[43%] -translate-y-1/2 z-50">
+                    <button className="custom-prev sm:flex absolute xl:left-[-50px] md:left-[40%] lg:left-[43%] bottom-[-17%] lg:bottom-[-15%] left-[36%] xl:bottom-[43%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
                         <img src={leftArrow} alt="Prev" className="size-[38px] cursor-pointer" />
                     </button>
-                    <button className="custom-next sm:flex absolute xl:right-[-50px] md:right-[40%] lg:right-[45%] bottom-[-17%] lg:bottom-[-15%] right-[36%] xl:bottom-[43%] -translate-y-1/2 z-50">
+                    <button className="custom-next sm:flex absolute xl:right-[-50px] md:right-[40%] lg:right-[45%] bottom-[-17%] lg:bottom-[-15%] right-[36%] xl:bottom-[43%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
                         <img src={rightArrow} alt="Next" className="size-[38px] cursor-pointer" />
                     </button>
+
                     {message && (
                         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-dark-blue text-white px-4 py-2 rounded-md shadow-lg z-50 text-sm font-medium transition-opacity duration-300">
                             {message}

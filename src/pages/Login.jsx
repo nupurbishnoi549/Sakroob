@@ -5,131 +5,152 @@ import eyeIcon from '../assets/images/svg/eye.svg';
 import hideEyeIcon from '../assets/images/svg/eye-hide.svg';
 
 const Login = () => {
-    const { login, switchToSignup } = useAuth();
+    const { login } = useAuth();
     const navigate = useNavigate();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
+    const [loginDetails, setLoginDetails] = useState({ userEmail: '', userPwd: '' });
+    const [showEye, setShowEye] = useState(false);
+    const [formAlert, setFormAlert] = useState({ userEmail: '', userPwd: '' });
+    const [toast, setToast] = useState(false);
 
-    const clearErrors = () => {
-        setTimeout(() => {
-            setEmailError('');
-            setPasswordError('');
-        }, 2000);
+    const updateInput = (e) => {
+        const { name, value } = e.target;
+        setLoginDetails({ ...loginDetails, [name]: value });
+        setFormAlert({ ...formAlert, [name]: '' });
     };
 
-    const handleSubmit = (e) => {
+    const validateLogin = (e) => {
         e.preventDefault();
-        let valid = true;
 
-        if (!email) {
-            setEmailError("Please enter your email.");
+        let valid = true;
+        const alertData = { userEmail: '', userPwd: '' };
+
+        if (!loginDetails.userEmail) {
+            alertData.userEmail = 'Email is required.';
             valid = false;
         }
 
-        if (!password) {
-            setPasswordError("Please enter your password.");
+        if (!loginDetails.userPwd) {
+            alertData.userPwd = 'Password is required.';
             valid = false;
         }
 
         if (!valid) {
-            clearErrors();
+            setFormAlert(alertData);
             return;
         }
 
-        const success = login({ email, password });
-        if (!success) {
-            setPasswordError("Incorrect email or password.");
-            clearErrors();
+        const isLoggedIn = login({
+            email: loginDetails.userEmail,
+            password: loginDetails.userPwd,
+        });
+
+        if (!isLoggedIn) {
+            setFormAlert({ userEmail: '', userPwd: 'Invalid email or password.' });
+            return;
         }
+
+        setToast(true);
+        setTimeout(() => {
+            setToast(false);
+            navigate('/');
+        }, 2000);
     };
 
-    const handleForgotPassword = () => {
-        if (!email) {
-            setEmailError("Please enter your email to reset password.");
-            clearErrors();
+    const handleResetPassword = () => {
+        if (!loginDetails.userEmail) {
+            setFormAlert((prev) => ({
+                ...prev,
+                userEmail: 'Enter your email to reset password.',
+            }));
             return;
         }
+
         const users = JSON.parse(localStorage.getItem('users') || '[]');
-        const exists = users.find(u => u.email === email);
+        const found = users.find((u) => u.email === loginDetails.userEmail);
 
-        if (!exists) {
-            setEmailError("No account found with this email.");
+        if (!found) {
+            setFormAlert((prev) => ({
+                ...prev,
+                userEmail: 'No user found with this email.',
+            }));
         } else {
-            alert('Reset link has been sent to your email (simulated).');
-            console.log(`Reset link sent to: ${email}`);
+            alert(`Reset email sent to ${loginDetails.userEmail} (simulated).`);
         }
-
-        clearErrors();
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 bg-img">
-            <div className="bg-white md:p-[64px] p-5 rounded-lg shadow-md space-y-5 md:max-w-[590px] w-full">
-                <h2 className="text-2xl font-bold text-center text-gray-800">Welcome back!</h2>
-                <p className="text-center text-gray-600">Log in below to access your account and keep things running smoothly.</p>
+        <div className="min-h-screen flex items-center justify-center px-4 bg-[url('../assets/images/png/login-bg-img.png')] bg-cover">
+            <div className="max-w-[580px] w-full bg-white shadow-md rounded-xl p-6 sm:p-12">
+                <h2 className="text-3xl font-bold text-center text-dark-blue">Welcome back!</h2>
+                <p className="text-center text-gray-600 mt-2">
+                    Enter your credentials to log into your account.
+                </p>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                        <input
-                            type="email"
-                            placeholder="Email address"
-                            className={`w-full border py-[14px] pl-7 rounded-full ${emailError ? 'border-red-500' : ''}`}
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>}
-                    </div>
-
+                <form onSubmit={validateLogin} className="space-y-8 mt-6 relative z-10">
                     <div className="relative">
                         <input
-                            type={showPassword ? 'text' : 'password'}
-                            placeholder="Password"
-                            className={`w-full border py-[14px] pl-7 pr-16 rounded-full ${passwordError ? 'border-red-500' : ''}`}
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            type="email"
+                            name="userEmail"
+                            value={loginDetails.userEmail}
+                            onChange={updateInput}
+                            placeholder="Email address"
+                            className={`w-full py-3 pl-6 pr-4 border rounded-full focus:outline-none ${formAlert.userEmail ? 'border-red-500' : 'border-gray-300'}`}
                         />
-                        <button
-                            type="button"
-                            onClick={() => setShowPassword(!showPassword)}
-                            className="absolute right-4 top-1/2 -translate-y-1/2"
-                        >
-                            <img src={showPassword ? eyeIcon : hideEyeIcon} alt="Toggle visibility" className="w-6 cursor-pointer" />
-                        </button>
-                        {passwordError && <p className="text-red-500 text-sm mt-1">{passwordError}</p>}
+                        {formAlert.userEmail && (
+                            <p className="absolute left-4 -bottom-5 text-red-500 text-sm">{formAlert.userEmail}</p>
+                        )}
                     </div>
-
-                    <div className="text-right -mt-2">
+                    <div className="relative">
+                        <input
+                            type={showEye ? 'text' : 'password'}
+                            name="userPwd"
+                            value={loginDetails.userPwd}
+                            onChange={updateInput}
+                            placeholder="Password"
+                            className={`w-full py-3 pl-6 pr-12 border rounded-full focus:outline-none ${formAlert.userPwd ? 'border-red-500' : 'border-gray-300'}`}
+                        />
+                        <img
+                            src={showEye ? eyeIcon : hideEyeIcon}
+                            alt="Toggle Password"
+                            onClick={() => setShowEye(!showEye)}
+                            className="absolute top-1/2 right-4 -translate-y-1/2 w-6 cursor-pointer"
+                        />
+                        {formAlert.userPwd && (
+                            <p className="absolute left-4 -bottom-5 text-red-500 text-sm">{formAlert.userPwd}</p>
+                        )}
+                    </div>
+                    <div className="text-right">
                         <button
                             type="button"
-                            onClick={handleForgotPassword}
-                            className="text-sm font-semibold cursor-pointer text-gray-500 hover:underline"
+                            onClick={handleResetPassword}
+                            className="text-sm text-dark-blue cursor-pointer font-medium underline hover:text-red-400"
                         >
                             Forgot password?
                         </button>
                     </div>
-
                     <button
                         type="submit"
-                        className="w-full bg-black cursor-pointer text-white py-4 rounded-full hover:bg-gray-800 transition"
+                        className="w-full bg-dark-blue cursor-pointer text-white py-3 rounded-full hover:bg-dark-blue/90 transition"
                     >
                         Log in
                     </button>
                 </form>
-
-                <p className="text-sm text-center text-gray-600">
+                <p className="text-sm text-center mt-5 text-dark-blue">
                     Don’t have an account?{' '}
                     <button
+                        className="text-dark-blue font-semibold underline cursor-pointer hover:text-red-400"
                         onClick={() => navigate('/signup')}
-                        className="text-black cursor-pointer font-semibold underline"
                     >
-                        Create an account
+                        Create one
                     </button>
                 </p>
             </div>
+            {toast && (
+                <div className="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-2 rounded shadow-lg z-50">
+                    Login successful!
+                </div>
+            )}
         </div>
     );
 };

@@ -26,7 +26,10 @@ export const AuthProvider = ({ children }) => {
     }, [currentUser]);
 
     const signup = (userData) => {
+        const exists = users.some((u) => u.email === userData.email);
+        if (exists) return false;
         setUsers((prev) => [...prev, userData]);
+        return true;
     };
 
     const login = ({ email, password }) => {
