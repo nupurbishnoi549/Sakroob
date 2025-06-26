@@ -1,23 +1,33 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(() => {
-        return localStorage.getItem('isAuthenticated') === 'true';
-    });
+    const [isAuthenticated, setIsAuthenticated] = useState(
+        () => JSON.parse(localStorage.getItem('isAuthenticated')) || false
+    );
+    const [users, setUsers] = useState(
+        () => JSON.parse(localStorage.getItem('users')) || []
+    );
+    const [currentScreen, setCurrentScreen] = useState(
+        () => localStorage.getItem('currentScreen') || 'login'
+    );
 
-    const [users, setUsers] = useState(() => {
-        const storedUsers = localStorage.getItem('users');
-        return storedUsers ? JSON.parse(storedUsers) : [];
-    });
+    // Sync state to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('isAuthenticated', JSON.stringify(isAuthenticated));
+    }, [isAuthenticated]);
 
-    const [currentScreen, setCurrentScreen] = useState('login');
+    useEffect(() => {
+        localStorage.setItem('users', JSON.stringify(users));
+    }, [users]);
+
+    useEffect(() => {
+        localStorage.setItem('currentScreen', currentScreen);
+    }, [currentScreen]);
 
     const signup = (userData) => {
-        const updatedUsers = [...users, userData];
-        setUsers(updatedUsers);
-        localStorage.setItem('users', JSON.stringify(updatedUsers));
+        setUsers((prev) => [...prev, userData]);
         setCurrentScreen('login');
     };
 
@@ -27,7 +37,6 @@ export const AuthProvider = ({ children }) => {
         );
         if (matched) {
             setIsAuthenticated(true);
-            localStorage.setItem('isAuthenticated', 'true');
             return true;
         }
         return false;
@@ -35,17 +44,11 @@ export const AuthProvider = ({ children }) => {
 
     const logout = () => {
         setIsAuthenticated(false);
-        localStorage.setItem('isAuthenticated', 'false');
         setCurrentScreen('login');
     };
 
     const switchToSignup = () => setCurrentScreen('signup');
     const switchToLogin = () => setCurrentScreen('login');
-
-    // Sync users from localStorage if they change
-    useEffect(() => {
-        localStorage.setItem('users', JSON.stringify(users));
-    }, [users]);
 
     return (
         <AuthContext.Provider

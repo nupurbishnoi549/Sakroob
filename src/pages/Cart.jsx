@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import Button from '../components/common/Button';
 import trash from '../assets/images/svg/trash.svg';
@@ -7,15 +7,11 @@ import trash from '../assets/images/svg/trash.svg';
 const Cart = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
     const { cartItems, addToCart, removeFromCart } = useCart();
 
     const product = cartItems.find(item => item.slug === slug);
-
-    useEffect(() => {
-        if (!product) {
-            navigate('/');
-        }
-    }, [product, navigate]);
+    const fromPage = location.state?.from || `/product/${slug}`;
 
     const handleIncrement = () => addToCart(product, 1);
     const handleDecrement = () => {
@@ -90,11 +86,16 @@ const Cart = () => {
                                 +
                             </button>
                         </div>
+
+                        {/* Trash button */}
                         <button
-                            onClick={() => removeFromCart(product.slug)}
+                            onClick={() => {
+                                removeFromCart(product.slug);
+                                navigate(fromPage);
+                            }}
                             className="w-[36px] h-[36px] flex items-center justify-center opacity-70 hover:opacity-100 transition"
                         >
-                            <img src={trash} alt="Delete" className="size-7" />
+                            <img src={trash} alt="Delete" className="size-8" />
                         </button>
                     </div>
 
@@ -119,7 +120,6 @@ const Cart = () => {
                             btnClass="bg-[#112D49] text-white px-10 py-2.5 w-full rounded-full text-sm font-semibold"
                             onClick={() => navigate(`/checkout/${slug}`)}
                         />
-
                     </div>
                 </div>
             </div>

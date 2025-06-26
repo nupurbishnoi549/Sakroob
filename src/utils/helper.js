@@ -42,26 +42,35 @@ import fan from '../assets/images/png/fan.png';
 export const NAV_ITEMS = [
     {
         label: 'Categories',
+        to: '#categories',
     },
     {
         label: 'PC Products',
         hasDropdown: true,
-        dropdown: ['Standard PC Components', 'Reference Earlier Examples'],
+        dropdown: [
+            { label: 'Standard PC Components', to: '#standard-pc' },
+            { label: 'Reference Earlier Examples', to: '#reference' },
+        ],
     },
     {
         label: 'Services',
         hasDropdown: true,
-        dropdown: ['DIY Services'],
+        dropdown: [{ label: 'DIY Services', to: '#diy-services' }],
     },
     {
         label: 'Support',
         hasDropdown: true,
-        dropdown: ['FAQ’s', 'Returns', 'Contact'],
+        dropdown: [
+            { label: 'FAQ’s', to: '#faqs' },
+            { label: 'Returns', to: '#returns' },
+            { label: 'Contact', to: '#contact' },
+        ],
     },
-    { label: 'About' },
-    { label: 'Blog' },
-    { label: 'Contact' },
+    { label: 'About', to: '#about' },
+    { label: 'Blog', to: '#blog' },
+    { label: 'Contact', to: '#contact' },
 ];
+
 export const NAVBAR_ICONS = [
     { alt: 'User', icon: user },
     { alt: 'Wishlist', icon: wishlist },
@@ -277,11 +286,12 @@ export const NAV_LINKS = [
     { label: "Contact", href: "#" },
 ];
 export const SOCIALS = [
-    { alt: "Facebook", href: "#", icon: facebook },
-    { alt: "Instagram", href: "#", icon: instagram },
-    { alt: "X", href: "#", icon: twitter },
-    { alt: "YouTube", href: "#", icon: youtube },
+    { alt: "Facebook", href: "https://www.facebook.com/", icon: facebook },
+    { alt: "Instagram", href: "https://www.instagram.com/", icon: instagram },
+    { alt: "X", href: "https://twitter.com/", icon: twitter }, // formerly Twitter
+    { alt: "YouTube", href: "https://www.youtube.com/", icon: youtube },
 ];
+
 export const LEGAL_LINKS = [
     { label: "Term of Service", href: "#" },
     { label: "Privacy Policy", href: "#" },

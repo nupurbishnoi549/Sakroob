@@ -32,18 +32,20 @@ const Footer = ({ showSakroob = true }) => {
                         <a key={link.label} href={link.href} className="hover:underline">{link.label}</a>
                     ))}
                 </nav>
-
                 <div className="flex gap-4 mb-8">
                     {SOCIALS.map(social => (
                         <a
                             key={social.alt}
                             href={social.href}
                             aria-label={social.alt}
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            <img src={social.icon} alt={social.alt} className="size-8" />
+                            <img src={social.icon} alt={social.alt} className="size-8 cursor-pointer" />
                         </a>
                     ))}
                 </div>
+
             </div>
 
             <div className="w-full h-px bg-gradient-to-r from-transparent via-white/80 to-transparent my-6" />

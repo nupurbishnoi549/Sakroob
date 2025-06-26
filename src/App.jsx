@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useAuth } from './context/AuthContext'; // ✅ Correct import
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
 
 import Navbar from './components/common/Navbar';
 import Footer from './components/Footer';
@@ -40,45 +40,79 @@ const MinimalLayout = ({ children, showFooter = true, showSakroob = true }) => (
   </>
 );
 
-const App = () => {
-  const { isAuthenticated, currentScreen } = useAuth();
+const AppRoutes = () => {
+  const { isAuthenticated, currentUser } = useAuth();
 
-  // ✅ Redirect unauthenticated users to login/signup
-  if (!isAuthenticated) {
-    return currentScreen === 'signup' ? <Signup /> : <Login />;
-  }
+  console.log('🔐 Authenticated:', isAuthenticated);
+  console.log('👤 Current User:', currentUser);
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomeLayout />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/product/:slug"
-          element={
+    <Routes>
+      <Route
+        path="/"
+        element={
+          isAuthenticated ? <HomeLayout /> : <Navigate to="/login" replace />
+        }
+      />
+
+      <Route
+        path="/product/:slug"
+        element={
+          isAuthenticated ? (
             <MinimalLayout showFooter={true} showSakroob={true}>
               <ProductDetails />
             </MinimalLayout>
-          }
-        />
-        <Route
-          path="/cart/:slug"
-          element={
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
+      <Route
+        path="/cart/:slug"
+        element={
+          isAuthenticated ? (
             <MinimalLayout showFooter={true} showSakroob={false}>
               <Cart />
             </MinimalLayout>
-          }
-        />
-        <Route
-          path="/checkout/:slug"
-          element={
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
+      <Route
+        path="/checkout/:slug"
+        element={
+          isAuthenticated ? (
             <MinimalLayout showFooter={true} showSakroob={false}>
               <Checkout />
             </MinimalLayout>
-          }
-        />
-      </Routes>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
+      {/* Public Routes */}
+      <Route
+        path="/login"
+        element={!isAuthenticated ? <Login /> : <Navigate to="/" replace />}
+      />
+      <Route
+        path="/signup"
+        element={!isAuthenticated ? <Signup /> : <Navigate to="/" replace />}
+      />
+
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AppRoutes />
     </Router>
   );
 };

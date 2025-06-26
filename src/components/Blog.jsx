@@ -5,7 +5,7 @@ import Button from './common/Button';
 
 const Blog = () => {
     return (
-        <section className="xl:pb-[132px] lg:pb-24 md:pb-20 pb-14 px-4 bg-white overflow-hidden">
+        <div id='blog' className="xl:pb-[132px] lg:pb-24 md:pb-20 pb-14 px-4 bg-white overflow-hidden">
             <Heading headingText="Blog, Guides, Build Logs & More" headingClass="!text-center !mb-16 !max-w-[618px] !mx-auto"/>
             <div className="grid xl:grid-cols-2 gap-6">
                 {BLOG_DATA.map((blog, index) => {
@@ -89,7 +89,7 @@ const Blog = () => {
             <div className="flex justify-center mt-12">
                 <Button btnText="View All Blog Posts" btnClass="bg-dark-blue px-5 rounded-full text-white" />
             </div>
-        </section>
+        </div>
     );
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { POPULAR_PRODUCT } from '../utils/helper';
 import Button from './common/Button';
@@ -8,12 +8,18 @@ import Heading from './common/Heading';
 
 const PopularProducts = () => {
     const navigate = useNavigate();
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleExploreClick = () => {
+        setShowPopup(true);
+        setTimeout(() => setShowPopup(false), 2500); // auto-hide after 2.5 sec
+    };
 
     return (
-        <div className="mt-16 max-w-[1140px] mx-auto px-4 sm:px-6">
+        <div className="mt-16 max-w-[1140px] mx-auto px-4 sm:px-6 relative">
             <Heading headingText="Popular Products" headingClass="!mb-20 text-center" />
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-lg:gap-y-19">
                 {POPULAR_PRODUCT.slice(0, 3).map((item) => {
                     const slug = item.title.toLowerCase().replace(/\s+/g, '-');
                     return (
@@ -61,8 +67,16 @@ const PopularProducts = () => {
                 <Button
                     btnText="Explore All Products"
                     btnClass="bg-dark-blue px-6 py-2 rounded-full text-white text-sm hover:bg-[#0a2d4f] transition"
+                    onClick={handleExploreClick}
                 />
             </div>
+
+            {/* Popup Message */}
+            {showPopup && (
+                <div className="fixed bottom-6 right-6 bg-[#112D49] text-white px-4 py-3 rounded-md shadow-lg z-50 animate-slide-in">
+                    More products coming soon!
+                </div>
+            )}
         </div>
     );
 };

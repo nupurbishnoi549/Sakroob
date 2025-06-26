@@ -12,6 +12,7 @@ const ProductDetails = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
     const { addToCart } = useCart();
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -21,7 +22,7 @@ const ProductDetails = () => {
     const [selectedColor, setSelectedColor] = useState(dummyColors[0]);
     const [quantity, setQuantity] = useState(1);
     const [selectedImage, setSelectedImage] = useState(product?.img);
-    const [showSuccessPopup, setShowSuccessPopup] = useState(false); // Popup state
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
     if (!product) {
         return <div className="text-center mt-20 text-xl">Product not found.</div>;
@@ -29,7 +30,6 @@ const ProductDetails = () => {
 
     return (
         <div className="py-12 px-4 max-w-[1284px] mx-auto relative">
-            {/* Small toast-style popup */}
             {showSuccessPopup && (
                 <div className="fixed bottom-6 right-6 bg-dark-blue text-white px-4 py-3 rounded shadow-lg z-50 animate-slide-in">
                     <p className="text-sm font-semibold">Order placed successfully! 🎉</p>
@@ -67,6 +67,7 @@ const ProductDetails = () => {
                         ))}
                     </div>
                 </div>
+
                 <div className="flex-1">
                     <h1 className="text-2xl md:text-3xl font-bold text-dark-blue mb-4">
                         {product.title}
@@ -90,6 +91,7 @@ const ProductDetails = () => {
                             ))}
                         </div>
                     </div>
+
                     <div className="mb-10">
                         <p className="font-bold text-[#18314F] mb-2">Select Quantity</p>
                         <div className="flex items-center">
@@ -114,6 +116,7 @@ const ProductDetails = () => {
                             </div>
                         </div>
                     </div>
+
                     <div className="flex flex-col gap-4 mt-6">
                         <Button
                             btnText="Buy Now"
@@ -123,19 +126,21 @@ const ProductDetails = () => {
                                 setTimeout(() => setShowSuccessPopup(false), 2500);
                             }}
                         />
+
                         <Button
                             btnText="Add to cart"
                             btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 py-3 rounded w-full sm:w-auto"
                             onClick={() => {
                                 addToCart(product, quantity);
-                                setTimeout(() => {
-                                    navigate(`/cart/${slug}`);
-                                }, 0);
+                                navigate(`/cart/${slug}`, {
+                                    state: { from: `/product/${slug}` }
+                                });
                             }}
                         />
                     </div>
                 </div>
             </div>
+
             <ProductTabs />
             <PopularProducts />
         </div>

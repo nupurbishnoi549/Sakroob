@@ -10,7 +10,7 @@ import raspberryImg from '../assets/images/png/raspberry.png';
 
 const Shop = () => {
     return (
-        <div className="py-14 bg-white text-center px-4 xl:py-[132px] lg:py-24 md:py-20">
+        <div id='diy-services' className="py-14 bg-white text-center px-4 xl:py-[132px] lg:py-24 md:py-20">
             <Description descriptionText="Featured Categories" descriptionClass="!italic" />
             <Heading headingText="Shop Our Most Popular Products" headingClass="!mb-10 !max-w-[602px] !mx-auto" />
             <div className="flex flex-wrap justify-center gap-6 max-w-[1400px] mx-auto">
