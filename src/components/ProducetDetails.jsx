@@ -61,10 +61,10 @@ const ProductDetails = ({ data }) => {
                     </div>
                 </div>
                 <div className="flex gap-4">
-                    <button className="bg-[#0A2740] text-white px-6 py-2 rounded">
+                    <button className="bg-dark-blue text-white px-6 py-2 rounded">
                         Buy Now
                     </button>
-                    <button className="border border-[#0A2740] text-[#0A2740] px-6 py-2 rounded">
+                    <button className="border border-[#0A2740] text-dark-blue px-6 py-2 rounded">
                         Add to cart
                     </button>
                 </div>

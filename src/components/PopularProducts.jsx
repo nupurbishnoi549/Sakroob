@@ -25,7 +25,7 @@ const PopularProducts = () => {
                     return (
                         <div
                             key={item.id}
-                            className="bg-white border border-[#112D4914] rounded-lg shadow p-4 sm:p-5 flex flex-col text-left"
+                            className="bg-white border-black rounded-lg shadow p-4 sm:p-5 flex flex-col text-left"
                         >
                             <div className="relative bg-[#E5E4E2] rounded-md w-full h-[220px] flex items-center justify-center overflow-visible">
                                 <img src={heartIcon} alt="Heart" className="absolute top-4 right-4 w-6 h-6 sm:w-8 sm:h-8 z-10" />
@@ -35,10 +35,10 @@ const PopularProducts = () => {
                                     className="absolute top-[-31%] w-[180px] h-[240px] sm:w-[206px] sm:h-[274px] object-contain"
                                 />
                             </div>
-                            <h3 className="text-[16px] sm:text-[18px] font-semibold text-[#0F3D68] mt-5 leading-snug">
+                            <h3 className="text-[16px] sm:text-[18px] font-semibold text-dark-blue mt-5 leading-snug">
                                 {item.title}
                             </h3>
-                            <p className="text-[12px] sm:text-[13px] text-[#7D8FA9] mt-2 leading-normal">
+                            <p className="text-[12px] sm:text-[13px] text-dark-blue mt-2 leading-normal">
                                 Tempered glass case with clean cable management and optimized airflow.
                             </p>
                             <div className="flex justify-between items-center mt-4">
@@ -66,7 +66,7 @@ const PopularProducts = () => {
                 />
             </div>
             {showPopup && (
-                <div className="fixed bottom-6 right-6 bg-[#112D49] text-white px-4 py-3 rounded-md shadow-lg z-50 animate-slide-in">
+                <div className="fixed bottom-6 right-6 bg-dark-blue text-white px-4 py-3 rounded-md shadow-lg z-50 animate-slide-in">
                     More products coming soon!
                 </div>
             )}

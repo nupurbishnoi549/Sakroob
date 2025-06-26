@@ -15,7 +15,7 @@ const Marque = () => {
                         <div className="size-[59px]">
                             <category.icon />
                         </div>
-                        <span className="font-bold text-[#112D49] leading-[120%]">
+                        <span className="font-bold text-dark-blue leading-[120%]">
                             {category.title}
                         </span>
                     </div>

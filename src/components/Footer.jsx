@@ -13,7 +13,7 @@ const Footer = ({ showSakroob = true }) => {
     const topPaddingClass = isProductOrCart ? 'pt-[75px]' : 'pt-[217px]';
 
     return (
-        <div className={`bg-[#16375b] text-white ${topPaddingClass} pb-4 px-4 relative`}>
+        <div className={`bg-dark-blue text-white ${topPaddingClass} pb-4 px-4 relative`}>
             {showSakroob && !isProductOrCart && (
                 <div className='absolute top-[-34%] xl:left-[11%] lg:left-[7%] md:left-[3%] left-0 max-md:px-3'>
                     <SakroobCircle />

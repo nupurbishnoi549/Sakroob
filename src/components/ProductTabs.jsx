@@ -46,12 +46,12 @@ const ProductTabs = () => {
                             key={key}
                             ref={el => tabRefs.current[i] = el}
                             onClick={() => setActiveTab(key)}
-                            className={`flex-shrink-0 sm:flex-1 py-2 px-4 text-base sm:text-lg font-semibold bg-transparent focus:outline-none transition-colors duration-200 ${align} ${activeTab === key ? 'text-[#112D49]' : 'text-gray-500 hover:text-[#112D49]'}`}
+                            className={`flex-shrink-0 sm:flex-1 py-2 px-4 text-base sm:text-lg font-semibold bg-transparent focus:outline-none transition-colors duration-200 ${align} ${activeTab === key ? 'text-dark-blue' : 'text-gray-500 hover:text-[#112D49]'}`}
                         >  {label}
                         </button>
                     ))}
                     <span ref={indicatorRef}
-                        className="absolute bottom-0 h-[4px] bg-[#112D49] rounded transition-all duration-300 z-10"
+                        className="absolute bottom-0 h-[4px] bg-dark-blue rounded transition-all duration-300 z-10"
                         style={{ left: 0, width: 0 }} />
                 </div>
             </div>
@@ -61,12 +61,12 @@ const ProductTabs = () => {
                     <div>
                         <div className="flex flex-col lg:flex-row gap-8">
                             <div className="flex flex-col lg:min-w-[220px]">
-                                <div className="text-[20px] sm:text-[22px] font-semibold text-[#112D49] mb-1">Customer Reviews</div>
+                                <div className="text-[20px] sm:text-[22px] font-semibold text-dark-blue mb-1">Customer Reviews</div>
                                 <div className="mb-2">
                                     <span className="text-[#FFD600] text-xl font-bold">★★★★★</span>
                                     <p className="font-medium text-dark-blue mt-1">Based on 1 review</p>
                                 </div>
-                                <a href="#" className="text-[#112D49] mt-10 text-sm font-medium hover:underline flex items-center gap-1">
+                                <a href="#" className="text-dark-blue mt-10 text-sm font-medium hover:underline flex items-center gap-1">
                                     See all Customers Reviews <span className="ml-1">&gt;</span>
                                 </a>
                             </div>
@@ -91,10 +91,10 @@ const ProductTabs = () => {
                             </div>
                             <div className="flex-1 lg:min-w-[250px] flex flex-col items-start lg:items-end">
                                 <div className="rounded-xl p-5 sm:p-6 w-full max-w-xs bg-[#F9FAFB]">
-                                    <h4 className="text-lg font-semibold text-[#112D49] mb-1">Review this Product</h4>
+                                    <h4 className="text-lg font-semibold text-dark-blue mb-1">Review this Product</h4>
                                     <p className="text-xs text-gray-500 mb-4">Share your thought with other customers</p>
                                     <button
-                                        className="bg-[#112D49] text-white w-full py-3 rounded-full font-medium shadow hover:bg-[#18314F] transition whitespace-nowrap"
+                                        className="bg-[#112D49] cursor-pointer text-white w-full py-3 rounded-full font-medium shadow hover:bg-[#18314F] transition whitespace-nowrap"
                                         onClick={() => setShowReviewPopup(true)}
                                     >
                                         Write a Customer Review
@@ -114,7 +114,7 @@ const ProductTabs = () => {
                                     <span className="text-[#FFD600] text-base">★★★★★</span>
                                     <span className="text-gray-400 text-xs">23/05/2025</span>
                                 </div>
-                                <div className="font-semibold text-[#112D49] text-base">Kathryn Murphy</div>
+                                <div className="font-semibold text-dark-blue text-base">Kathryn Murphy</div>
                                 <div className="text-gray-600 text-sm mt-2 max-w-2xl">
                                     Excellent router that offers great value for its price...
                                 </div>
@@ -125,7 +125,7 @@ const ProductTabs = () => {
 
                 {activeTab === 'specs' && (
                     <div>
-                        <h3 className="text-xl font-semibold text-[#112D49] mb-4">Specifications</h3>
+                        <h3 className="text-xl font-semibold text-dark-blue mb-4">Specifications</h3>
                         <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm sm:text-base">
                             <li>ADSL2+ Router with 300 Mbps speed</li>
                             <li>4 Ethernet Ports + 1 WAN</li>
@@ -144,7 +144,7 @@ const ProductTabs = () => {
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
                     <div className="bg-white p-6 rounded-xl w-full max-w-md shadow-lg relative">
                         <button
-                            className="absolute top-2 right-3 text-gray-500 text-xl hover:text-black"
+                            className="absolute top-2 right-3 text-gray-500 cursor-pointer text-xl hover:text-black"
                             onClick={() => setShowReviewPopup(false)}
                         >
                             &times;
@@ -156,7 +156,7 @@ const ProductTabs = () => {
                             className="w-full border border-gray-300 rounded-lg p-3 text-sm outline-none resize-none focus:ring-2 focus:ring-[#112D49]"
                         ></textarea>
                         <button
-                            className="mt-4 w-full bg-[#112D49] text-white py-2.5 rounded-full font-semibold hover:bg-[#0E243E]"
+                            className="mt-4 w-full bg-dark-blue cursor-pointer text-white py-4 rounded-full font-semibold hover:bg-[#0E243E]"
                             onClick={() => {
                                 setShowReviewPopup(false);
                                 alert('Review Submitted');

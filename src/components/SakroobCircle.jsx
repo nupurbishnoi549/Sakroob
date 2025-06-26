@@ -54,7 +54,7 @@ const SakroobCircle = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email..."
-                                className="flex-1 bg-transparent outline-none text-sm sm:text-base text-[#00171F] placeholder:text-[#00171F] placeholder:opacity-50 placeholder:font-normal mr-3"
+                                className="flex-1 bg-transparent outline-none text-sm sm:text-base text-dark-blue placeholder:text-[#00171F] placeholder:opacity-50 placeholder:font-normal mr-3"
                             />
                             <Button
                                 btnText="Join Now"

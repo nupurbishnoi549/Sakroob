@@ -60,14 +60,14 @@ const BestSellers = () => {
                     >
                         {BESTSELLERS_DATA.map((item, index) => (
                             <SwiperSlide key={index} className="flex justify-center !overflow-visible">
-                                <div className="relative w-full max-w-[400px] h-[580px] bg-white border border-[#0000001A] shadow-md p-4 rounded-[8px] flex flex-col justify-between mx-auto">
+                                <div className="relative w-full max-w-[400px] h-[580px] bg-white border border-black shadow-md p-4 rounded-[8px] flex flex-col justify-between mx-auto">
                                     <img
                                         src={wishlist.includes(item.slug) ? filledHeartIcon : heartIcon}
                                         alt="Heart"
                                         onClick={() => toggleWishlist(item.slug)}
                                         className="absolute top-6 right-7 size-8 z-10 cursor-pointer transition-transform hover:scale-110"
                                     />
-                                    <div className={`w-[362px] h-[262.65px] rounded-[6px] mx-auto flex items-center justify-center ${index === 1 ? 'bg-[#EEF4FB]' : 'bg-[#E5E4E2]'}`}>
+                                    <div className={`w-[362px] h-[262.65px] rounded-[6px] mx-auto flex items-center justify-center ${index === 1 ? 'bg-blue' : 'bg-silver'}`}>
                                         <img
                                             src={item.img}
                                             alt={item.title}
@@ -87,7 +87,7 @@ const BestSellers = () => {
                                         <Button
                                             btnText="Shop Now"
                                             onClick={() => {
-                                                window.location.href = `/product/${item.slug}`; // ✅ Updated for instant redirect without scroll
+                                                window.location.href = `/product/${item.slug}`;
                                             }}
                                             btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 xl:px-[88px]"
                                         />
@@ -106,7 +106,7 @@ const BestSellers = () => {
                         <img src={rightArrow} alt="Next" className="size-[38px] cursor-pointer" />
                     </button>
                     {message && (
-                        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#0A2740] text-white px-4 py-2 rounded-md shadow-lg z-50 text-sm font-medium transition-opacity duration-300">
+                        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-dark-blue text-white px-4 py-2 rounded-md shadow-lg z-50 text-sm font-medium transition-opacity duration-300">
                             {message}
                         </div>
                     )}
