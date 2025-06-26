@@ -69,7 +69,7 @@ const Signup = () => {
                         <input
                             type="text"
                             placeholder="First Name"
-                            className={`w-full border py-[14px] pl-7 rounded-full ${errors.firstName ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`w-full border py-[14px] pl-7 rounded-full ${errors.firstName ? 'border-black' : 'border-gray-300'} hover:border-black`}
                             value={formData.firstName}
                             onChange={(e) => handleChange('firstName', e.target.value)}
                         />
@@ -81,7 +81,7 @@ const Signup = () => {
                         <input
                             type="text"
                             placeholder="Last Name"
-                            className={`w-full border py-[14px] pl-7 rounded-full ${errors.lastName ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`w-full border py-[14px] pl-7 rounded-full ${errors.lastName ? 'border-black' : 'border-gray-300'} hover:border-black`}
                             value={formData.lastName}
                             onChange={(e) => handleChange('lastName', e.target.value)}
                         />
@@ -93,7 +93,7 @@ const Signup = () => {
                         <input
                             type="email"
                             placeholder="Email"
-                            className={`w-full border py-[14px] pl-7 rounded-full ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`w-full border py-[14px] pl-7 rounded-full ${errors.email ? 'border-black' : 'border-gray-300'} hover:border-black`}
                             value={formData.email}
                             onChange={(e) => handleChange('email', e.target.value)}
                         />
@@ -105,7 +105,7 @@ const Signup = () => {
                         <input
                             type={showPassword ? 'text' : 'password'}
                             placeholder="Password"
-                            className={`w-full border py-[14px] pl-7 pr-[60px] rounded-full ${errors.password ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`w-full border py-[14px] pl-7 pr-[60px] rounded-full ${errors.password ? 'border-black' : 'border-gray-300'} hover:border-black`}
                             value={formData.password}
                             onChange={(e) => handleChange('password', e.target.value)}
                         />
@@ -130,7 +130,7 @@ const Signup = () => {
                     Already a member?{' '}
                     <button
                         onClick={() => navigate('/login')}
-                        className="text-black font-semibold cursor-pointer underline hover:text-red-500"
+                        className="text-black font-semibold cursor-pointer underline hover:text-gray-700"
                     >
                         Log in
                     </button>

@@ -95,7 +95,7 @@ const Login = () => {
                             value={loginDetails.userEmail}
                             onChange={updateInput}
                             placeholder="Email address"
-                            className={`w-full py-3 pl-6 pr-4 border rounded-full focus:outline-none ${formAlert.userEmail ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`w-full py-3 pl-6 pr-4 border rounded-full focus:outline-none ${formAlert.userEmail ? 'border-black' : 'border-gray-300'}`}
                         />
                         {formAlert.userEmail && (
                             <p className="absolute left-4 -bottom-5 text-red-500 text-sm">{formAlert.userEmail}</p>
@@ -108,7 +108,7 @@ const Login = () => {
                             value={loginDetails.userPwd}
                             onChange={updateInput}
                             placeholder="Password"
-                            className={`w-full py-3 pl-6 pr-12 border rounded-full focus:outline-none ${formAlert.userPwd ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`w-full py-3 pl-6 pr-12 border rounded-full focus:outline-none ${formAlert.userPwd ? 'border-black' : 'border-gray-300'}`}
                         />
                         <img
                             src={showEye ? eyeIcon : hideEyeIcon}
@@ -124,7 +124,7 @@ const Login = () => {
                         <button
                             type="button"
                             onClick={handleResetPassword}
-                            className="text-sm text-dark-blue cursor-pointer font-medium underline hover:text-red-400"
+                            className="text-sm text-dark-blue cursor-pointer font-medium underline hover:text-blue-600"
                         >
                             Forgot password?
                         </button>
@@ -139,10 +139,10 @@ const Login = () => {
                 <p className="text-sm text-center mt-5 text-dark-blue">
                     Don’t have an account?{' '}
                     <button
-                        className="text-dark-blue font-semibold underline cursor-pointer hover:text-red-400"
+                        className="text-dark-blue font-semibold underline cursor-pointer hover:text-blue-600"
                         onClick={() => navigate('/signup')}
                     >
-                         Create account
+                        Create account
                     </button>
                 </p>
             </div>
