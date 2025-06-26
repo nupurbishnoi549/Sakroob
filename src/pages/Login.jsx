@@ -80,11 +80,11 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center px-4 bg-[url('../assets/images/png/login-bg-img.png')] bg-cover">
+        <div className="min-h-screen flex items-center justify-center px-4 bg-img bg-cover">
             <div className="max-w-[580px] w-full bg-white shadow-md rounded-xl p-6 sm:p-12">
                 <h2 className="text-3xl font-bold text-center text-dark-blue">Welcome back!</h2>
-                <p className="text-center text-gray-600 mt-2">
-                    Enter your credentials to log into your account.
+                <p className="text-center text-gray-600 mt-2 max-w-[326px]">
+                    Log in below to access your account and keep things running smoothly.
                 </p>
 
                 <form onSubmit={validateLogin} className="space-y-8 mt-6 relative z-10">
@@ -98,7 +98,7 @@ const Login = () => {
                             className={`w-full py-3 pl-6 pr-4 border rounded-full focus:outline-none ${formAlert.userEmail ? 'border-red-500' : 'border-gray-300'}`}
                         />
                         {formAlert.userEmail && (
-                            <p className="absolute left-4 -bottom-5 text-red-500 text-sm">{formAlert.userEmail}</p>
+                            <p className="absolute left-4 -bottom-5 hover:text-[#73A4E0 text-sm">{formAlert.userEmail}</p>
                         )}
                     </div>
                     <div className="relative">
@@ -117,14 +117,14 @@ const Login = () => {
                             className="absolute top-1/2 right-4 -translate-y-1/2 w-6 cursor-pointer"
                         />
                         {formAlert.userPwd && (
-                            <p className="absolute left-4 -bottom-5 text-red-500 text-sm">{formAlert.userPwd}</p>
+                            <p className="absolute left-4 -bottom-5 hover:text-[#73A4E0 text-sm">{formAlert.userPwd}</p>
                         )}
                     </div>
                     <div className="text-right">
                         <button
                             type="button"
                             onClick={handleResetPassword}
-                            className="text-sm text-dark-blue cursor-pointer font-medium underline hover:text-red-400"
+                            className="text-sm text-dark-blue cursor-pointer font-medium underline hover:text-[#73A4E0"
                         >
                             Forgot password?
                         </button>
@@ -139,10 +139,10 @@ const Login = () => {
                 <p className="text-sm text-center mt-5 text-dark-blue">
                     Don’t have an account?{' '}
                     <button
-                        className="text-dark-blue font-semibold underline cursor-pointer hover:text-red-400"
+                        className="text-dark-blue font-semibold underline cursor-pointer hover:text-[#73A4E0]"
                         onClick={() => navigate('/signup')}
                     >
-                        Create one
+                        Create account
                     </button>
                 </p>
             </div>
