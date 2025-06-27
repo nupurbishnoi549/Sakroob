@@ -5,7 +5,7 @@ const Marque = () => {
     const duplicatedData = [...CATEGORY_DATA, ...CATEGORY_DATA];
 
     return (
-        <div id='categories' className="overflow-hidden py-6">
+        <div id='categories' className="overflow-hidden py-6  max-w-[1920px] mx-auto">
             <div className="flex animate-marquee gap-4">
                 {duplicatedData.map((category, index) => (
                     <div

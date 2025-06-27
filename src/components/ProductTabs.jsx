@@ -1,4 +1,5 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
+import reveiwImg from '../assets/images/png/review-img.png';
 
 const tabs = [
     { key: 'reviews', label: 'Reviews', align: 'text-left' },
@@ -105,9 +106,9 @@ const ProductTabs = () => {
                         <div className="my-8 gradient-border" />
                         <div className="flex items-start gap-4 flex-col sm:flex-row">
                             <img
-                                src="https://randomuser.me/api/portraits/women/68.jpg"
+                                src={reveiwImg}
                                 alt="Kathryn Murphy"
-                                className="w-14 h-14 rounded-full object-cover border-2 border-[#E5EAF1]"
+                                className="size-[66px] pointer-events-none rounded-full object-cover border-2 border-[#E5EAF1]"
                             />
                             <div>
                                 <div className="flex items-center gap-2 flex-wrap">

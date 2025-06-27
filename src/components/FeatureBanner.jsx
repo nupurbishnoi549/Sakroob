@@ -3,7 +3,7 @@ import { FEATURES_LIST } from '../utils/helper';
 
 const FeatureBanner = () => {
     return (
-        <div id='reference' className="w-full bg-sky py-11 mt-6">
+        <div id='reference' className="w-full bg-sky py-11 mt-6  max-w-[1920px] mx-auto">
             <div className="max-w-7xl mx-auto px-4 flex flex-wrap xl:flex-nowrap items-center justify-between gap-y-8 gap-x-6">
                 {FEATURES_LIST.map((feature, index) => (
                     <React.Fragment key={index}>

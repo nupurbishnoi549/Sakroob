@@ -49,7 +49,7 @@ const Cart = () => {
                 <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-0 items-center px-6 py-8 border-t bg-[#F8F9FA]">
                     <div className="flex items-center gap-4 w-full md:w-1/2">
                         <div className="relative w-[120px] h-[120px] border border-[#00000033] rounded-lg bg-[#E9E9E9]">
-                            <img src={product.img} alt={product.title} className="w-full h-full object-contain" />
+                            <img src={product.img} alt={product.title} className="w-full h-full object-contain pointer-events-none" />
                             <span className="absolute top-[-12px] right-[-12px] bg-[#C7C7C7] text-white text-xs font-semibold px-3 py-[6px] rounded-full shadow-lg">
                                 {product.quantity}
                             </span>

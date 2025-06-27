@@ -41,13 +41,11 @@ const Navbar = () => {
     }, []);
 
     return (
-        <div className="bg-[#0A2740] text-white w-full">
+        <div className="bg-[#0A2740] text-white w-full  max-w-[1920px] mx-auto">
             <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-20 relative">
                 <a href="/" className="flex items-center md:w-[115px] w-22 md:h-[93px] h-22 cursor-pointer">
-                    <img src={logo} alt="Logo" className="w-full h-full object-contain md:mt-7" />
+                    <img src={logo} alt="Logo" className="w-full h-full object-contain md:mt-7 pointer-events-none" />
                 </a>
-
-                {/* Desktop Nav */}
                 <div className="hidden lg:flex items-center gap-6" ref={dropdownRef}>
                     {NAV_ITEMS.map((item) => (
                         <div key={item.label} className="relative group">
@@ -89,8 +87,6 @@ const Navbar = () => {
                         </div>
                     ))}
                 </div>
-
-                {/* Desktop Icons */}
                 <div className="hidden lg:flex items-center gap-4">
                     {NAVBAR_ICONS.map((icon, index) => (
                         <React.Fragment key={icon.alt}>
@@ -99,14 +95,10 @@ const Navbar = () => {
                         </React.Fragment>
                     ))}
                 </div>
-
-                {/* Hamburger Button */}
                 <button className="lg:hidden z-50 cursor-pointer" onClick={() => setMenuOpen(true)}>
                     <FiMenu size={24} />
                 </button>
             </div>
-
-            {/* Search Bar */}
             <div className="bg-[#F1F6FC] py-6 lg:py-4 px-4">
                 <div className="max-w-[689px] mx-auto relative group">
                     <input
@@ -121,8 +113,6 @@ const Navbar = () => {
                     />
                 </div>
             </div>
-
-            {/* Mobile Menu */}
             {menuOpen && (
                 <div className="fixed inset-0 bg-[#0A2740] z-50 overflow-y-auto text-white">
                     <div className="flex justify-end p-4">

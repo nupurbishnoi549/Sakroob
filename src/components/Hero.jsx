@@ -8,7 +8,7 @@ import Button from '../components/common/Button';
 
 const Hero = () => {
     return (
-        <div id='standard-pc' className="relative px-4 pb-[43px]">
+        <div id='standard-pc' className="relative px-4 pb-[43px]  max-w-[1920px] mx-auto">
             <div className="relative">
                 <Swiper
                     modules={[Pagination, Autoplay]}

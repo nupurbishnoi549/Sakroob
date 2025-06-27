@@ -5,7 +5,7 @@ import Button from './common/Button';
 
 const Blog = () => {
     return (
-        <div id='blog' className="xl:pb-[132px] lg:pb-24 md:pb-20 pb-14 px-4 bg-white overflow-hidden">
+        <div id='blog' className="xl:pb-[132px] lg:pb-24 md:pb-20 pb-14 px-4 bg-white overflow-hidden  max-w-[1920px] mx-auto">
             <Heading headingText="Blog, Guides, Build Logs & More" headingClass="!text-center !mb-16 !max-w-[618px] !mx-auto"/>
             <div className="grid xl:grid-cols-2 gap-6">
                 {BLOG_DATA.map((blog, index) => {
@@ -37,7 +37,7 @@ const Blog = () => {
                                 <img
                                     src={blog.imgRight}
                                     alt="Right"
-                                    className="w-[250px] sm:w-[300px] xl:w-[365px] lg:w-[300px] md:w-[200px] h-auto object-contain mt-6 md:mt-0"
+                                    className="w-[250px] pointer-events-none sm:w-[300px] xl:w-[365px] lg:w-[300px] md:w-[200px] h-auto object-contain mt-6 md:mt-0"
                                 />
                             )}
                         </div>
@@ -70,16 +70,16 @@ const Blog = () => {
                             <img
                                 src={blog.img}
                                 alt={blog.title}
-                                className={`object-contain 
+                                    className={`object-contain
                                     ${index === 0
-                                        ? 'w-[220px] sm:w-[281px] h-[180px] sm:h-[236px]'
+                                        ? 'w-[220px] sm:w-[281px] h-[180px] sm:h-[236px] pointer-events-none'
                                         : index === 1
-                                            ? 'w-[325px] max-md:object-fill sm:w-[286px] md:h-[210px] h-[255px] sm:h-[320px]'
+                                            ? 'w-[325px] max-md:object-fill sm:w-[286px] pointer-events-none md:h-[210px] h-[255px] sm:h-[320px]'
                                             : ''}
                                     ${index === 0
-                                        ? 'sm:absolute sm:right-[1%] sm:bottom-[2%] mb-4 sm:mb-0'
+                                        ? 'sm:absolute sm:right-[1%] sm:bottom-[2%] mb-4 sm:mb-0 pointer-events-none'
                                         : index === 1
-                                            ? 'sm:absolute xl:right-[-7%] lg:right-[-5%] right-[16%] bottom-[28%] md:right-[-7%] md:bottom-[2%] mb-4 sm:mb-0 md:pr-4 sm:pr-0'
+                                            ? 'sm:absolute pointer-events-none xl:right-[-7%] lg:right-[-5%] right-[16%] bottom-[28%] md:right-[-7%] md:bottom-[2%] mb-4 sm:mb-0 md:pr-4 sm:pr-0'
                                             : ''}`}/>
                         </div>
                     );

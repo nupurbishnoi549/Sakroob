@@ -44,14 +44,14 @@ const ProductDetails = () => {
                         <img
                             src={selectedImage}
                             alt={product.title}
-                            className="object-contain w-full max-w-[320px] sm:max-w-sm h-[400px]"
+                            className="object-contain pointer-events-none w-full max-w-[320px] sm:max-w-sm h-[400px]"
                         />
                     </div>
                     <div className="flex flex-wrap justify-center gap-4 mt-4">
                         {dummyColors.map((color, idx) => (
                             <div
                                 key={idx}
-                                className={`border rounded-lg p-2 w-[156px] h-[124px] flex items-center justify-center bg-white cursor-pointer ${selectedColor === color ? 'ring-2 ring-dark-blue' : ''}`}
+                                className={`border rounded-lg p-2 pointer-events-none w-[156px] h-[124px] flex items-center justify-center bg-white cursor-pointer ${selectedColor === color ? 'ring-2 ring-dark-blue' : ''}`}
                                 onClick={() => {
                                     setSelectedImage(product.img);
                                     setSelectedColor(color);

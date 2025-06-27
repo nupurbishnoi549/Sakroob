@@ -32,7 +32,7 @@ const PopularProducts = () => {
                                 <img
                                     src={item.img}
                                     alt={item.title}
-                                    className="absolute top-[-31%] w-[180px] h-[240px] sm:w-[206px] sm:h-[274px] object-contain"
+                                    className="absolute pointer-events-none top-[-31%] w-[180px] h-[240px] sm:w-[206px] sm:h-[274px] object-contain"
                                 />
                             </div>
                             <h3 className="text-[16px] sm:text-[18px] font-semibold text-dark-blue mt-5 leading-snug">

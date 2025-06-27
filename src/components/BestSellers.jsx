@@ -71,7 +71,7 @@ const BestSellers = () => {
                                         <img
                                             src={item.img}
                                             alt={item.title}
-                                            className={`object-contain ${getImageSize(item.title)}`}
+                                            className={`object-contain pointer-events-none ${getImageSize(item.title)}`}
                                         />
                                     </div>
 
