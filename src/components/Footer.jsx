@@ -6,16 +6,13 @@ import Description from "./common/Description";
 import { useLocation } from 'react-router-dom';
 
 const Footer = ({ showSakroob = true }) => {
-    const location = useLocation();
+    const { pathname } = useLocation();
 
-    const isProductOrCart = location.pathname.startsWith('/product/') || location.pathname.startsWith('/cart/');
-
-    const topPaddingClass = isProductOrCart ? 'pt-[75px]' : 'pt-[217px]';
-
+    const topPaddingClass = ['/product/', '/cart/'].some(path => pathname.startsWith(path)) ? 'pt-[75px]' : 'md:pt-[217px] pt-[170px]';
     return (
-        <div className={`bg-dark-blue text-white  max-w-[1920px] mx-auto ${topPaddingClass} pb-4 px-4 relative`}>
-            {showSakroob && !isProductOrCart && (
-                <div className='absolute top-[-34%]  xl:left-[11%] 2xl:left-[20%] lg:left-[7%] md:left-[3%] left-0 max-md:px-3'>
+        <div className={`bg-dark-blue text-white max-w-[1920px] mx-auto ${topPaddingClass} pb-4 px-4 relative`}>
+            {showSakroob && !['/product/', '/cart/'].some(path => pathname.startsWith(path)) && (
+                <div className='absolute top-[-34%]  xl:left-[11%] 2xl:left-[20%] w-full max-w-[1140px] lg:left-[0%] md:left-[0%] left-0 px-4'>
                     <SakroobCircle />
                 </div>
             )}
@@ -46,8 +43,6 @@ const Footer = ({ showSakroob = true }) => {
                         </a>
                     ))}
                 </div>
-
-
             </div>
 
             <div className="w-full h-px bg-gradient-to-r from-transparent via-white/80 to-transparent my-6" />

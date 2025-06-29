@@ -199,9 +199,9 @@ const Header = () => {
                         <div className="flex justify-center gap-6 pt-6">
                             {NAVBAR_ICONS.map((icon) => (
                                 <img
-                                    key={icon.alt}
+                                    key={icon.name}
                                     src={icon.icon}
-                                    alt={icon.alt}
+                                    alt={icon.name}
                                     className="w-6 h-6 cursor-pointer"
                                 />
                             ))}

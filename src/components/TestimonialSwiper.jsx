@@ -16,7 +16,7 @@ import { TESTIMONIALS_DATA } from '../utils/helper';
 
 const Testimonials = () => {
     return (
-        <div id='contact' className="w-full pb-60 bg-white flex flex-col items-center text-center px-4 sm:px-6">
+        <div id='contact' className="w-full md:pb-60 pb-70 bg-white flex flex-col items-center text-center px-4 sm:px-6">
             <Description descriptionText="Testimonials" descriptionClass="!italic !mb-2" />
             <Heading headingText=" What Our Client’s Says" />
             <div className="w-full max-w-[1160px] relative py-12 sm:py-16 mx-auto">

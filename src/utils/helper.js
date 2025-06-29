@@ -61,10 +61,10 @@ export const NAV_ITEMS = [
 ];
 
 export const NAVBAR_ICONS = [
-    { alt: 'User', icon: user }, 
-    { alt: 'Wishlist', icon: wishlist },
-    { alt: 'Cart', icon: cart },
-    { alt: 'Profile', icon: profile },
+    { name: 'User', icon: user }, 
+    { name: 'Wishlist', icon: wishlist },
+    { name: 'Cart', icon: cart },
+    { name: 'Profile', icon: profile },
 ];
 export const CATEGORY_DATA = [
     { id: 1, title: "Televisions", icon: TvIcon },

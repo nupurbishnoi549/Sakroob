@@ -62,14 +62,14 @@ const BestSellers = () => {
                     >
                         {BESTSELLERS_DATA.map((item, index) => (
                             <SwiperSlide key={index} className="flex justify-center !overflow-visible">
-                                <div className="relative w-full max-w-[400px] h-[580px] bg-white border border-black shadow-md p-4 rounded-[8px] flex flex-col justify-between mx-auto">
+                                <div className="relative w-full xl:max-w-[364px]  h-[580px] bg-white border border-black shadow-md p-4 rounded-[8px] flex flex-col justify-between mx-auto">
                                     <img
                                         src={wishlist.includes(item.slug) ? filledHeartIcon : heartIcon}
                                         alt="Heart"
                                         onClick={() => toggleWishlist(item.slug)}
-                                        className="absolute top-6 right-7 size-8 z-10 cursor-pointer transition-transform hover:scale-110"
+                                        className="absolute top-6 xl:right-7 right-7 lg:right-4 size-8 z-10 cursor-pointer transition-transform hover:scale-110"
                                     />
-                                    <div className={`xl:w-[362px] lg:w-[286px] md:w-[320px] w-[310px] h-[262.65px] rounded-[6px] mx-auto flex items-center justify-center ${index === 1 ? 'bg-blue' : 'bg-silver'}`}>
+                                    <div className={`xl:w-[332px] lg:w-[286px] md:w-[320px] w-[310px] h-[262.65px] rounded-[6px] mx-auto flex items-center justify-center ${index === 1 ? 'bg-blue' : 'bg-silver'}`}>
                                         <img
                                             src={item.img}
                                             alt={item.title}

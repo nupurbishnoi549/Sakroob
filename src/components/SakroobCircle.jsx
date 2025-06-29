@@ -29,8 +29,8 @@ const SakroobCircle = () => {
     };
 
     return (
-        <div className="flex items-center justify-center max-w-[1920px] ">
-            <div className="container xl:w-[1140px] lg:w-[883px] md:w-[725px] mx-auto">
+        <div className="flex items-center justify-center max-w-[1920px]">
+            <div className="w-full max-w-[1140px] mx-auto">
                 <div
                     className="relative bg-cover bg-center bg-no-repeat rounded-[24px] overflow-hidden z-10"
                     style={{ backgroundImage: `url(${bgImage})` }}

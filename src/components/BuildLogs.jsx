@@ -7,7 +7,7 @@ import blogImg from '../assets/images/png/blog-img5.png';
 const BuildLogs = () => {
     return (
         <div id='blog' className="xl:pb-[132px] lg:pb-24 md:pb-20 pb-14 px-4 bg-white overflow-hidden max-w-[1920px] mx-auto">
-            <Heading headingText="Blog, Guides, Build Logs & More" headingClass="!text-center !mb-16 !max-w-[618px] !mx-auto" />
+            <Heading headingText="Blog, Guides, Build Logs & More" headingClass="!text-center md:!mb-16 !mb-8 !max-w-[618px] !mx-auto" />
             <div className="grid xl:grid-cols-2 gap-6">
                 {BLOG_DATA.map((blog, index) => {
                     const isFull = blog.fullWidth || index === 2;

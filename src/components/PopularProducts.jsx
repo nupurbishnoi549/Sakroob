@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { POPULAR_PRODUCT } from '../utils/helper';
 import CustomButton from './common/CustomButton';
@@ -10,10 +10,18 @@ import ratingImage from '../assets/images/svg/star.svg';
 const PopularProducts = () => {
     const navigate = useNavigate();
     const [showPopup, setShowPopup] = useState(false);
+    const [is768, setIs768] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIs768(window.innerWidth === 768);
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const handleExploreClick = () => {
         setShowPopup(true);
-        setTimeout(() => setShowPopup(false), 2500); 
+        setTimeout(() => setShowPopup(false), 2500);
     };
 
     return (
@@ -21,12 +29,15 @@ const PopularProducts = () => {
             <Heading headingText="Popular Products" headingClass="!mb-20 text-center" />
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-lg:gap-y-19">
-                {POPULAR_PRODUCT.slice(0, 3).map((item) => {
+                {POPULAR_PRODUCT.slice(0, 3).map((item, index) => {
                     const slug = item.title.toLowerCase().replace(/\s+/g, '-');
+                    const isThirdCard = index === 2;
+
                     return (
                         <div
                             key={item.id}
-                            className="bg-white border-black rounded-lg shadow p-4 sm:p-5 flex flex-col text-left"
+                            className={`bg-white border-black rounded-lg shadow p-4 sm:p-5 flex flex-col text-left ${isThirdCard && is768 ? 'col-span-full mx-auto max-w-sm' : ''
+                                }`}
                         >
                             <div className="relative bg-[#E5E4E2] rounded-md w-full h-[220px] flex items-center justify-center overflow-visible">
                                 <img src={heartIcon} alt="Heart" className="absolute top-4 right-4 w-6 h-6 sm:w-8 sm:h-8 z-10" />
@@ -59,6 +70,7 @@ const PopularProducts = () => {
                     );
                 })}
             </div>
+
             <div className="flex justify-center mt-10">
                 <CustomButton
                     btnText="Explore All Products"
@@ -66,6 +78,7 @@ const PopularProducts = () => {
                     onClick={handleExploreClick}
                 />
             </div>
+
             {showPopup && (
                 <div className="fixed bottom-6 right-6 bg-dark-blue text-white px-4 py-3 rounded-md shadow-lg z-50 animate-slide-in">
                     More products coming soon!
