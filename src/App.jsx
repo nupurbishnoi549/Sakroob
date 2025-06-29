@@ -1,33 +1,31 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
-
-import Navbar from './components/common/Navbar';
 import Footer from './components/Footer';
-import Marque from './components/Marque';
 import Hero from './components/Hero';
 import FeatureBanner from './components/FeatureBanner';
 import TestimonialSwiper from './components/TestimonialSwiper';
 import Shop from './components/Shop';
 import BestSellers from './components/BestSellers';
-import Blog from './components/Blog';
-
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ProductDetails from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/CheckOut';
-import BackToTop from './components/BackToTop';
+import BackToTop from './components/common/BackToTop';
+import Header from './components/common/Header';
+import BuildLogs from './components/BuildLogs';
+import CustomMarquee from './components/CustomMarquee';
 
 const HomeLayout = () => (
   <>
-    <Navbar />
-    <Marque />
+    <Header/>
+    <CustomMarquee/>
     <Hero />
     <FeatureBanner />
     <Shop />
     <BestSellers />
-    <Blog />
+    <BuildLogs/>
     <TestimonialSwiper />
     <Footer />
     <BackToTop/>
@@ -36,7 +34,7 @@ const HomeLayout = () => (
 
 const MinimalLayout = ({ children, showFooter = true, showSakroob = true }) => (
   <>
-    <Navbar />
+    <Header />
     {children}
     {showFooter && <Footer showSakroob={showSakroob} />}
   </>

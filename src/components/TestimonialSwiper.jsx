@@ -19,7 +19,7 @@ const Testimonials = () => {
         <div id='contact' className="w-full pb-60 bg-white flex flex-col items-center text-center px-4 sm:px-6">
             <Description descriptionText="Testimonials" descriptionClass="!italic !mb-2" />
             <Heading headingText=" What Our Client’s Says" />
-            <div className="w-full max-w-[1000px] relative py-12 sm:py-16 mx-auto">
+            <div className="w-full max-w-[1160px] relative py-12 sm:py-16 mx-auto">
                 <Swiper
                     breakpoints={{
                         0: { slidesPerView: 1 },
@@ -41,18 +41,18 @@ const Testimonials = () => {
                                     <img
                                         src={item.image}
                                         alt={item.name}
-                                        className="size-[64px] sm:size-[72px] md:size-[80px] rounded-full mb-4"
+                                        className="size-[64px] sm:size-[72px] md:size-[93px] rounded-full mb-4"
                                     />
                                     <div className="text-dark-blue text-sm relative">
                                         <img src={dotArrow} alt="dotArrow" className='absolute lg:top-[-13%] md:top-[-9%] top-[-3%] lg:left-[1%] md:left-[-1%] left-[1%] w-5 sm:w-auto' />
-                                        <p className="text-center text-dark-blue mb-5 xl:w-[448px]">{item.description}</p>
+                                        <p className="text-center text-base text-dark-blue mb-5 xl:w-[517px] lg:max-w-[400px]">{item.description}</p>
                                         <img src={downArrow} alt="downArrow" className='absolute md:bottom-[7%] xl:right-[10%] lg:right-[4%] md:right-[18%] right-[21%] bottom-[11%] w-5 sm:w-auto' />
                                     </div>
                                     <div className="max-w-[140px] sm:max-w-[160px] md:max-w-[192px] mb-3">
                                         <img src={star} alt="star" />
                                     </div>
-                                    <p className="text-base sm:text-lg font-bold">{item.title}</p>
-                                    <p className="text-sm text-dark-blue">{item.role}</p>
+                                    <p className="text-2xl font-bold">{item.title}</p>
+                                    <p className="text-dark-blue">{item.role}</p>
                                 </div>
                             </div>
                         </SwiperSlide>

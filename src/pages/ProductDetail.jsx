@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { BESTSELLERS_DATA } from '../utils/helper';
-import Button from '../components/common/Button';
+import CustomButton from '../components/common/CustomButton';
 import { useCart } from '../context/CartContext';
 import ProductTabs from '../components/ProductTabs';
 import PopularProducts from '../components/PopularProducts';
+import ratingImage from '../assets/images/svg/star.svg';
 
 const dummyColors = ['#EEF4FB', '#00B894', '#1E90FF'];
 
@@ -29,13 +30,13 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className="py-12 px-4 max-w-[1284px] mx-auto relative">
+        <div className="lg:pt-[92px] md:pt-16 pt-10 px-4 max-w-[1284px] mx-auto relative">
             {showSuccessPopup && (
                 <div className="fixed bottom-6 right-6 bg-dark-blue text-white px-4 py-2 rounded-md shadow-lg z-50 animate-slide-in">
                     <p className="text-sm font-medium">Added to orders ✅</p>
                 </div>
             )}
-            <div className="flex flex-col lg:flex-row gap-10">
+            <div className="flex flex-col lg:flex-row gap-10 lg:pb-[121px] md:pb-16 pb-10">
                 <div className="flex-1">
                     <div
                         className="rounded-lg p-6 flex justify-center items-center transition-all duration-300"
@@ -44,7 +45,7 @@ const ProductDetails = () => {
                         <img
                             src={selectedImage}
                             alt={product.title}
-                            className="object-contain pointer-events-none w-full max-w-[320px] sm:max-w-sm h-[400px]"
+                            className="object-contain pointer-events-none w-full max-w-[320px] sm:max-w-sm"
                         />
                     </div>
                     <div className="flex flex-wrap justify-center gap-4 mt-4">
@@ -71,14 +72,14 @@ const ProductDetails = () => {
                 </div>
 
                 <div className="flex-1">
-                    <h1 className="text-2xl md:text-3xl font-bold text-dark-blue mb-4">
+                    <h1 className="text-2xl md:text-[34px] font-bold text-dark-blue mb-4">
                         {product.title}
                     </h1>
                     <p className="text-gray-600 text-base mb-4 max-w-xl">
                         The D-Link DSL-2790U is a high-speed ADSL2+ wireless router with speeds up to 300 Mbps—ideal for browsing, streaming, and gaming. It features four Ethernet ports, strong security, and guest network support. Perfect for reliable internet in homes and small offices.
                     </p>
-                    <p className="text-2xl font-bold text-dark-blue mb-4">{product.price}</p>
-                    <img src={product.rating} alt="Rating" className="w-[120px] mb-6" />
+                    <p className="text-[32px] font-bold text-dark-blue mb-4">{product.price}</p>
+                    <img src={ratingImage} alt="Rating" className="w-[197px] mb-6" />
 
                     <div className="mb-6">
                         <p className="font-medium text-dark-blue">Select Color</p>
@@ -120,7 +121,7 @@ const ProductDetails = () => {
                     </div>
 
                     <div className="flex flex-col gap-4 mt-6">
-                        <Button
+                        <CustomButton
                             btnText="Buy Now"
                             btnClass="bg-dark-blue text-white px-6 py-3 rounded hover:bg-[#112D49] w-full sm:w-auto"
                             onClick={() => {
@@ -129,7 +130,7 @@ const ProductDetails = () => {
                             }}
                         />
 
-                        <Button
+                        <CustomButton
                             btnText="Add to cart"
                             btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 py-3 rounded w-full sm:w-auto"
                             onClick={() => {

@@ -80,7 +80,7 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center px-4 bg-img bg-cover">
+        <div className="min-h-screen flex items-center justify-center px-4 login-bg-img bg-cover">
             <div className="max-w-[580px] w-full bg-white shadow-md rounded-xl p-6 sm:p-12">
                 <h2 className="text-3xl font-bold text-center text-dark-blue">Welcome back!</h2>
                 <p className="text-center text-gray-600 mt-2 max-w-[326px] mx-auto">

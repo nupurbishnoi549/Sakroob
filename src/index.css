@@ -74,8 +74,11 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-.bg-img{
+.login-bg-img{
   background-image: url("../src/assets/images/png/bg-img.png");
+}
+.slider-bg-img{
+  background-image: url("../src/assets/images/png/hero-img.png");
 }
 .custom-swiper-pagination .swiper-pagination-bullet {
   width: 21px;
@@ -126,4 +129,20 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.burger-line {
+  @apply w-6 h-[2px] bg-white transition-all duration-300 ease-in-out;
+}
+
+.burger-line-1-open {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger-line-2-open {
+  opacity: 0;
+}
+
+.burger-line-3-open {
+  transform: translateY(-8px) rotate(-45deg);
 }

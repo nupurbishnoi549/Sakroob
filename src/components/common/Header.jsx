@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 import logo from '../../assets/images/png/logo.png';
+import logo2 from '../../assets/images/png/logo-2.png';
 import search from '../../assets/images/svg/search.svg';
 import { NAV_ITEMS, NAVBAR_ICONS } from '../../utils/helper';
 
-const Navbar = () => {
+const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
     const dropdownRef = useRef(null);
@@ -41,11 +42,21 @@ const Navbar = () => {
     }, []);
 
     return (
-        <div className="bg-[#0A2740] text-white w-full  max-w-[1920px] mx-auto">
+        <div className="bg-[#0A2740] text-white w-full max-w-[1920px] mx-auto">
             <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-20 relative">
-                <a href="/" className="flex items-center md:w-[115px] w-22 md:h-[93px] h-22 cursor-pointer">
-                    <img src={logo} alt="Logo" className="w-full h-full object-contain md:mt-7 pointer-events-none" />
+                <a href="/" className="flex items-center xl:w-[115px] w-22 xl:h-[93px] h-[80px] cursor-pointer">
+                    <img
+                        src={logo}
+                        alt="Logo"
+                        className="w-full hidden lg:block h-full object-contain mt-11 pointer-events-none"
+                    />
+                    <img
+                        src={logo2}
+                        alt="Logo2"
+                        className="h-full block lg:hidden object-contain w-18 pointer-events-none"
+                    />
                 </a>
+
                 <div className="hidden lg:flex items-center gap-6" ref={dropdownRef}>
                     {NAV_ITEMS.map((item) => (
                         <div key={item.label} className="relative group">
@@ -65,7 +76,7 @@ const Navbar = () => {
                                             {item.dropdown.map((sub) => (
                                                 <a
                                                     key={sub.label}
-                                                    href={sub.to}
+                                                    href={sub.link}
                                                     onClick={closeDropdown}
                                                     className="block px-4 py-2 text-sm hover:bg-gray-100 whitespace-nowrap border-b last:border-b-0 cursor-pointer"
                                                 >
@@ -77,7 +88,7 @@ const Navbar = () => {
                                 </>
                             ) : (
                                 <a
-                                    href={item.to}
+                                    href={item.link}
                                     className="font-medium hover:underline transition-all cursor-pointer"
                                     onClick={closeDropdown}
                                 >
@@ -87,19 +98,38 @@ const Navbar = () => {
                         </div>
                     ))}
                 </div>
+
                 <div className="hidden lg:flex items-center gap-4">
                     {NAVBAR_ICONS.map((icon, index) => (
                         <React.Fragment key={icon.alt}>
-                            <img src={icon.icon} alt={icon.alt} className="w-5 h-5 cursor-pointer" />
+                            <img
+                                src={icon.icon}
+                                alt={icon.alt}
+                                className="xl:w-8 xl:h-8 w-6 h-6 cursor-pointer"
+                            />
                             {index < NAVBAR_ICONS.length - 1 && <div className="w-[1px] h-6 bg-white" />}
                         </React.Fragment>
                     ))}
                 </div>
-                <button className="lg:hidden z-50 cursor-pointer" onClick={() => setMenuOpen(true)}>
-                    <FiMenu size={24} />
+
+                <button
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="lg:hidden z-50 w-9 h-8 flex flex-col justify-between items-start relative"
+                    aria-label="Menu"
+                >
+                    <span className={`absolute left-0 h-[3px] bg-white rounded transition-all duration-300 ease-in-out 
+                        ${menuOpen ? 'rotate-45 top-[14px] w-9' : 'top-[6px] w-6 translate-x-[12px]'}`}
+                    />
+                    <span className={`absolute left-0 h-[3px] bg-white rounded transition-all duration-300 ease-in-out 
+                        ${menuOpen ? 'opacity-0 top-[14px]' : 'top-[14px] w-9'}`}
+                    />
+                    <span className={`absolute left-0 h-[3px] bg-white rounded transition-all duration-300 ease-in-out 
+                        ${menuOpen ? '-rotate-45 top-[14px] w-9' : 'top-[22px] w-5'}`}
+                    />
                 </button>
             </div>
-            <div className="bg-[#F1F6FC] py-6 lg:py-4 px-4">
+
+            <div className="bg-[#F1F6FC] py-4 px-4">
                 <div className="max-w-[689px] mx-auto relative group">
                     <input
                         type="text"
@@ -113,6 +143,7 @@ const Navbar = () => {
                     />
                 </div>
             </div>
+
             {menuOpen && (
                 <div className="fixed inset-0 bg-[#0A2740] z-50 overflow-y-auto text-white">
                     <div className="flex justify-end p-4">
@@ -140,7 +171,7 @@ const Navbar = () => {
                                                 {item.dropdown.map((sub) => (
                                                     <a
                                                         key={sub.label}
-                                                        href={sub.to}
+                                                        href={sub.link}
                                                         onClick={() => {
                                                             closeDropdown();
                                                             setMenuOpen(false);
@@ -155,7 +186,7 @@ const Navbar = () => {
                                     </>
                                 ) : (
                                     <a
-                                        href={item.to}
+                                        href={item.link}
                                         className="block py-2 font-medium hover:underline transition-all cursor-pointer"
                                         onClick={() => setMenuOpen(false)}
                                     >
@@ -167,7 +198,12 @@ const Navbar = () => {
 
                         <div className="flex justify-center gap-6 pt-6">
                             {NAVBAR_ICONS.map((icon) => (
-                                <img key={icon.alt} src={icon.icon} alt={icon.alt} className="w-5 h-5 cursor-pointer" />
+                                <img
+                                    key={icon.alt}
+                                    src={icon.icon}
+                                    alt={icon.alt}
+                                    className="w-6 h-6 cursor-pointer"
+                                />
                             ))}
                         </div>
                     </div>
@@ -177,4 +213,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Header;

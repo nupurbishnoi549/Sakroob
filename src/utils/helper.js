@@ -1,5 +1,5 @@
 import {
-    TvIcon, SmartwatchIcon, MonitorsIcon, GameIcon, StorageIcon, GraphicIcon,
+    TvIcon, SmartwatchIcon, MonitorIcon, GameIcon, StorageIcon, GraphicIcon,
     ExpressDeliveryIcon, EasyReturnIcon, SupportIcon, PremiumWarrantyIcon,
     SpecialGiftIcon, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon
 } from './Icons';
@@ -7,7 +7,6 @@ import user from '../assets/images/svg/user.svg';
 import wishlist from '../assets/images/svg/wishlist.svg';
 import cart from '../assets/images/svg/cart.svg';
 import profile from '../assets/images/svg/profile.svg';
-import heroBg1 from '../assets/images/png/hero-img.png'
 import testimonialImg from '../assets/images/png/william-gate-img.png';
 import testimonialImg2 from '../assets/images/png/darrell-img.png';
 import sensorImg from '../assets/images/png/sensor.png';
@@ -19,7 +18,6 @@ import raspberryImg from '../assets/images/png/raspberry.png';
 import gamingChair from '../assets/images/png/gaming-chair.png';
 import wirelessRouter from '../assets/images/png/wireless-router.png';
 import gamingPc from '../assets/images/png/gaming-pc.png';
-import ratingImage from '../assets/images/svg/star.svg';
 import blogImg1 from '../assets/images/png/blog-img1.png';
 import blogImg2 from '../assets/images/png/blog-img2.png';
 import blogImg3 from '../assets/images/png/blog-img3.png';
@@ -31,33 +29,35 @@ import fan from '../assets/images/png/fan.png';
 export const NAV_ITEMS = [
     {
         label: 'Categories',
-        to: '#categories',
+        link: '#categories',
     },
     {
         label: 'PC Products',
+        link: '#standard-pc',
         hasDropdown: true,
         dropdown: [
-            { label: 'Standard PC Components', to: '#standard-pc' },
-            { label: 'Reference Earlier Examples', to: '#reference' },
+            { label: 'Standard PC Components' },
+            { label: 'Reference Earlier Examples' },
         ],
     },
     {
         label: 'Services',
+        link: '#diy-services',
         hasDropdown: true,
-        dropdown: [{ label: 'DIY Services', to: '#diy-services' }],
+        dropdown: [{ label: 'DIY Services' }],
     },
     {
         label: 'Support',
         hasDropdown: true,
         dropdown: [
-            { label: 'FAQ’s', to: '#faqs' },
-            { label: 'Returns', to: '#returns' },
-            { label: 'Contact', to: '#contact' },
+            { label: 'FAQ’s'},
+            { label: 'Returns' },
+            { label: 'Contact'},
         ],
     },
-    { label: 'About', to: '#about' },
-    { label: 'Blog', to: '#blog' },
-    { label: 'Contact', to: '#contact' },
+    { label: 'About', link: '#about' },
+    { label: 'Blog', link: '#blog' },
+    { label: 'Contact', link: '#contact' },
 ];
 
 export const NAVBAR_ICONS = [
@@ -69,7 +69,7 @@ export const NAVBAR_ICONS = [
 export const CATEGORY_DATA = [
     { id: 1, title: "Televisions", icon: TvIcon },
     { id: 2, title: "Smartwatch", icon: SmartwatchIcon },
-    { id: 3, title: "Monitors", icon: MonitorsIcon },
+    { id: 3, title: "Monitors", icon: MonitorIcon },
     { id: 4, title: "Game", icon: GameIcon },
     { id: 5, title: "Storage (SSD)", icon: StorageIcon },
     { id: 6, title: "Graphic Card", icon: GraphicIcon },
@@ -79,31 +79,26 @@ export const HERO_SLIDES = [
         id: 1,
         heading: 'Where Tinkerers Bring Ideas Alive',
         text: 'Explore niche tech gear, DIY kits, and pro tools — built for creators, gamers, and engineers.',
-        img: heroBg1,
     },
     {
         id: 2,
         heading: 'Make. Test. Repeat.',
         text: 'From concept to creation, unleash your tech skills with tools that inspire.',
-        img: heroBg1,
     },
     {
         id: 3,
         heading: 'Where Tinkerers Bring Ideas Alive',
         text: 'Explore niche tech gear, DIY kits, and pro tools — built for creators, gamers, and engineers.',
-        img: heroBg1,
     },
     {
         id: 4,
         heading: 'Make. Test. Repeat.',
         text: 'From concept to creation, unleash your tech skills with tools that inspire.',
-        img: heroBg1,
     },
     {
         id: 5,
         heading: 'Where Tinkerers Bring Ideas Alive',
         text: 'Explore niche tech gear, DIY kits, and pro tools — built for creators, gamers, and engineers.',
-        img: heroBg1,
     },
 ];
 export const BLOG_DATA = [
@@ -164,7 +159,6 @@ export const BESTSELLERS_DATA = [
         title: 'Vortex Gaming PC',
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
         price: '₹ 12956.00',
-        rating: ratingImage,
         slug: 'vortex-gaming-pc',
     },
     {
@@ -172,7 +166,6 @@ export const BESTSELLERS_DATA = [
         title: 'D-Link ADSL Wireless Router DSL2790U',
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
         price: '₹ 15956.00',
-        rating: ratingImage,
         slug: 'd-link-adsl-wireless-router-dsl2790u',
     },
     {
@@ -180,7 +173,6 @@ export const BESTSELLERS_DATA = [
         title: 'Gaming Chair',
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
         price: '₹ 23956.00',
-        rating: ratingImage,
         slug: 'gaming-chair',
     },
     {
@@ -188,7 +180,6 @@ export const BESTSELLERS_DATA = [
         title: 'D-Link ADSL Wireless Router DSL2790U',
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
         price: '$179.99',
-        rating: ratingImage,
         slug: 'd-link-adsl-wireless-router-dsl2790u-2',
     },
 ];
@@ -198,21 +189,18 @@ export const POPULAR_PRODUCT = [
         title: 'NZXT H510 Elite PC Case',
         description: 'Tempered glass case with clean cable management and optimized airflow.',
         price: '$249.99',
-        rating: ratingImage,
     },
     {
         img: getForce,
         title: 'MSI GeForce RTX 4070 GPU',
         description: 'Ray tracing, AI-powered DLSS, and ultra-performance — redefine how you game.',
         price: '$349.99',
-        rating: ratingImage,
     },
     {
         img: fan,
         title: 'Gaming fan',
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
         price: '$259.99',
-        rating: ratingImage,
     },
 ];
 
@@ -268,20 +256,20 @@ export const SHOP_DATA = [
         bgColor: '#DCEEFF',
     },
 ];
-export const NAV_LINKS = [
-    { label: "Shipping", href: "#" },
-    { label: "Warranty", href: "#" },
-    { label: "FAQs", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Contact", href: "#" },
+export const FOOTER_LINKS = [
+    { label: "Shipping", url: "#" },
+    { label: "Warranty", url: "#" },
+    { label: "FAQs", url: "#" },
+    { label: "Blog", url: "#" },
+    { label: "Contact", url: "#" },
 ];
 export const SOCIALS = [
-    { alt: "Facebook", href: "https://www.facebook.com/", icon: FacebookIcon },
-    { alt: "Instagram", href: "https://www.instagram.com/", icon: InstagramIcon },
-    { alt: "X", href: "https://twitter.com/", icon: TwitterIcon }, // formerly Twitter
-    { alt: "YouTube", href: "https://www.youtube.com/", icon: YoutubeIcon },
+    { url: "https://www.facebook.com/", icon: FacebookIcon },
+    { url: "https://www.instagram.com/", icon: InstagramIcon },
+    { url: "https://twitter.com/", icon: TwitterIcon },
+    { url: "https://www.youtube.com/", icon: YoutubeIcon },
 ];
 export const LEGAL_LINKS = [
-    { label: "Term of Service", href: "#" },
-    { label: "Privacy Policy", href: "#" },
+    { label: "Term of Service", url: "#" },
+    { label: "Privacy Policy", url: "#" },
 ];

@@ -57,10 +57,10 @@ const Signup = () => {
     };
 
     return (
-        <div className="min-h-screen bg-img bg-gray-50 flex items-center justify-center px-4 bg-img">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 login-bg-img">
             <div className="bg-white md:p-[64px] p-5 rounded-lg shadow-md space-y-5 md:max-w-[590px] w-full">
-                <h2 className="text-[32px] font-bold text-center text-gray-800">Sign up</h2>
-                <p className="text-center mx-auto text-gray-600 max-w-[374px]">
+                <h2 className="text-[32px] font-bold text-center text-dark-blue">Sign up</h2>
+                <p className="text-center mx-auto text-dark-blue max-w-[374px]">
                     Create your account to unlock access and stay updated with everything we offer.
                 </p>
 
@@ -69,7 +69,7 @@ const Signup = () => {
                         <input
                             type="text"
                             placeholder="First Name"
-                            className={`w-full border py-[14px] pl-7 rounded-full ${errors.firstName ? 'border-black' : 'border-gray-300'} hover:border-black`}
+                            className={`w-full border py-[14px] bg-[#F4F8F7] pl-7 rounded-full ${errors.firstName ? 'border-black' : 'border-gray-300'} hover:border-black`}
                             value={formData.firstName}
                             onChange={(e) => handleChange('firstName', e.target.value)}
                         />
@@ -81,7 +81,7 @@ const Signup = () => {
                         <input
                             type="text"
                             placeholder="Last Name"
-                            className={`w-full border py-[14px] pl-7 rounded-full ${errors.lastName ? 'border-black' : 'border-gray-300'} hover:border-black`}
+                            className={`w-full border py-[14px] bg-[#F4F8F7] pl-7 rounded-full ${errors.lastName ? 'border-black' : 'border-gray-300'} hover:border-black`}
                             value={formData.lastName}
                             onChange={(e) => handleChange('lastName', e.target.value)}
                         />
@@ -93,7 +93,7 @@ const Signup = () => {
                         <input
                             type="email"
                             placeholder="Email"
-                            className={`w-full border py-[14px] pl-7 rounded-full ${errors.email ? 'border-black' : 'border-gray-300'} hover:border-black`}
+                            className={`w-full border py-[14px] bg-[#F4F8F7] pl-7 rounded-full ${errors.email ? 'border-black' : 'border-gray-300'} hover:border-black`}
                             value={formData.email}
                             onChange={(e) => handleChange('email', e.target.value)}
                         />
@@ -105,7 +105,7 @@ const Signup = () => {
                         <input
                             type={showPassword ? 'text' : 'password'}
                             placeholder="Password"
-                            className={`w-full border py-[14px] pl-7 pr-[60px] rounded-full ${errors.password ? 'border-black' : 'border-gray-300'} hover:border-black`}
+                            className={`w-full border py-[14px] bg-[#F4F8F7] pl-7 pr-[60px] rounded-full ${errors.password ? 'border-black' : 'border-gray-300'} hover:border-black`}
                             value={formData.password}
                             onChange={(e) => handleChange('password', e.target.value)}
                         />
@@ -121,7 +121,7 @@ const Signup = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full cursor-pointer bg-black text-white py-4 rounded-full hover:bg-gray-800 transition"
+                        className="w-full cursor-pointer bg-dark-blue text-white py-4 rounded-full hover:bg-gray-800 transition"
                     >
                         Sign up
                     </button>

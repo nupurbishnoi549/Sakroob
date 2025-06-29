@@ -32,7 +32,7 @@ const ProductDetails = ({ data }) => {
                 </div>
             </div>
             <div>
-                <h1 className="text-2xl font-semibold mb-2">{title}</h1>
+                <h2 className="text-2xl font-semibold mb-2">{title}</h2>
                 <p className="mb-4 text-gray-600">{description}</p>
                 <p className="text-xl font-bold mb-2">{price}</p>
                 <div className="flex gap-1 mb-4">

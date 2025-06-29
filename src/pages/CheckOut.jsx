@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../components/common/Button";
+import CustomButton from "../components/common/CustomButton";
 import checkImg from "../assets/images/png/checkout-img.png";
 import creditCard from '../assets/images/svg/credit-card.svg';
 import information from '../assets/images/svg/information.svg';
@@ -29,7 +29,7 @@ const CheckOut = () => {
                         <div className="w-full lg:w-8/12">
                             <div className="flex flex-wrap justify-between">
                                 <p className="font-bold text-2xl leading-[120%] text-[#112D49]">Contact</p>
-                                <Button btnText="Log in" btnClass="!py-[8px] !px-[26px] font-semibold" />
+                                <CustomButton btnText="Log in" btnClass="!py-[8px] !px-[26px] font-semibold" />
                                 <div className="flex justify-between items-center bg-[#F4F8F7] py-[13px] px-[26px] rounded-xl w-full mt-[20px]">
                                     <div className="flex-col flex w-full">
                                         <label className="text-xs leading-[150%] text-[#8393A0]">Email or mobile phone number</label>
@@ -173,7 +173,7 @@ const CheckOut = () => {
                                     <input type="text" placeholder="Coupon code" value={coupon} onChange={(e) => setCoupon(e.target.value)} className="outline-0 text-[#112D49] bg-[#F4F8F7] py-[13px] px-[26px] rounded-full w-full" />
                                     <button onClick={handleApplyCoupon} className="font-medium text-[#112D49] border border-[#112D49] max-w-[119px] w-full whitespace-nowrap py-2 px-[15px] rounded-[93px] hover:bg-[#112D49] hover:text-white transition-all ease-linear duration-200">Apply Now</button>
                                 </div>
-                                <Button btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue !w-full !max-w-[330px] mt-[20px]" btnText="Buy Now" />
+                                <CustomButton btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue !w-full !max-w-[330px] mt-[20px]" btnText="Buy Now" />
                             </div>
                         </div>
                     </div>

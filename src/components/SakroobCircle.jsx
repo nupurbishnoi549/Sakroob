@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import bgImage from '../assets/images/png/sakroob-bg-img.png';
 import Heading from '../components/common/Heading';
 import Description from '../components/common/Description';
-import Button from './common/Button';
+import CustomButton from './common/CustomButton';
 
 const SakroobCircle = () => {
     const [email, setEmail] = useState('');
@@ -29,7 +29,7 @@ const SakroobCircle = () => {
     };
 
     return (
-        <div className="flex items-center justify-center max-w-[1920px]">
+        <div className="flex items-center justify-center max-w-[1920px] ">
             <div className="container xl:w-[1140px] lg:w-[883px] md:w-[725px] mx-auto">
                 <div
                     className="relative bg-cover bg-center bg-no-repeat rounded-[24px] overflow-hidden z-10"
@@ -51,7 +51,7 @@ const SakroobCircle = () => {
                                     placeholder="Enter your email..."
                                     className="flex-1 bg-transparent outline-none text-sm sm:text-base text-dark-blue placeholder:text-[#00171F] placeholder:opacity-50 placeholder:font-normal mr-3"
                                 />
-                                <Button
+                                <CustomButton
                                     btnText="Join Now"
                                     btnClass="!px-5 py-2 text-white bg-dark-blue rounded-full text-sm sm:text-base"
                                     onClick={handleSubmit}

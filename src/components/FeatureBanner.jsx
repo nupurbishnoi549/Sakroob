@@ -3,12 +3,12 @@ import { FEATURES_LIST } from '../utils/helper';
 
 const FeatureBanner = () => {
     return (
-        <div id='reference' className="w-full bg-sky py-11 mt-6  max-w-[1920px] mx-auto">
-            <div className="max-w-7xl mx-auto px-4 flex flex-wrap xl:flex-nowrap items-center justify-between gap-y-8 gap-x-6">
+        <div id='reference' className="w-full px-4 sm:px-6 mt-6 max-w-[1920px] mx-auto">
+            <div className="max-w-[1384px] rounded-lg mx-auto bg-sky py-8 sm:py-11 px-4 flex flex-wrap xl:flex-nowrap items-center xl:justify-between gap-y-6 sm:gap-y-8 gap-x-4 sm:gap-x-6">
                 {FEATURES_LIST.map((feature, index) => (
                     <React.Fragment key={index}>
                         <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 w-full sm:w-auto">
-                            <div className="bg-[#6ba3e6] sm:bg-transparent size-14 sm:size-[47px] rounded-full sm:rounded-none flex items-center justify-center">
+                            <div className="bg-[#6ba3e6] sm:bg-transparent w-14 h-14 sm:w-[47px] sm:h-[47px] rounded-full sm:rounded-none flex items-center justify-center">
                                 <div className="w-6 h-6 sm:w-[47px] sm:h-[47px]">
                                     {feature.icon && <feature.icon />}
                                 </div>
@@ -21,7 +21,7 @@ const FeatureBanner = () => {
                         {index < FEATURES_LIST.length - 1 && (
                             <>
                                 <div className="hidden lg:block w-px h-[61px] bg-gradient-to-b from-transparent via-[#112D49] to-transparent opacity-30" />
-                                <hr className="block md:hidden w-2/3 mx-auto h-px border-none bg-gradient-to-r from-transparent via-[#112D49] to-transparent opacity-30" />
+                                <hr className="block lg:hidden w-2/3 mx-auto h-px border-none bg-gradient-to-r from-transparent via-[#112D49] to-transparent opacity-30" />
                             </>
                         )}
                     </React.Fragment>

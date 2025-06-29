@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { POPULAR_PRODUCT } from '../utils/helper';
-import Button from './common/Button';
+import CustomButton from './common/CustomButton';
 import cartIcon from '../assets/images/svg/cart-icon.svg';
 import heartIcon from '../assets/images/svg/heart.svg';
 import Heading from './common/Heading';
+import ratingImage from '../assets/images/svg/star.svg';
 
 const PopularProducts = () => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ const PopularProducts = () => {
     };
 
     return (
-        <div className="mt-16 max-w-[1140px] mx-auto px-4 sm:px-6 relative">
+        <div className="mt-16 max-w-[1140px] mx-auto px-4 sm:px-6 relative xl:pb-[132px] lg:pb-20 md:pb-16 pb-10">
             <Heading headingText="Popular Products" headingClass="!mb-20 text-center" />
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-lg:gap-y-19">
@@ -43,15 +44,15 @@ const PopularProducts = () => {
                             </p>
                             <div className="flex justify-between items-center mt-4">
                                 <span className="text-lg sm:text-xl font-semibold text-dark-blue">{item.price}</span>
-                                <img src={item.rating} alt="Rating" className="w-[90px] sm:w-[110px]" />
+                                <img src={ratingImage} alt="Rating" className="w-[90px] sm:w-[128px]" />
                             </div>
                             <div className="mt-5 cursor-pointer flex items-center justify-between gap-4">
-                                <Button
+                                <CustomButton
                                     btnText="Shop Now"
                                     btnClass="sm:w-auto hover:bg-[#112D49] hover:text-white !whitespace-nowrap !text-dark-blue px-12 xl:px-[68px]"
                                 />
-                                <div className="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center">
-                                    <img src={cartIcon} alt="Cart" className="w-6 h-6" />
+                                <div className="flex items-center justify-center">
+                                    <img src={cartIcon} alt="Cart" className="size-[48px]" />
                                 </div>
                             </div>
                         </div>
@@ -59,7 +60,7 @@ const PopularProducts = () => {
                 })}
             </div>
             <div className="flex justify-center mt-10">
-                <Button
+                <CustomButton
                     btnText="Explore All Products"
                     btnClass="bg-dark-blue px-6 py-2 rounded-full text-white text-sm hover:bg-[#0a2d4f] transition"
                     onClick={handleExploreClick}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import backToTop from '../assets/images/svg/back-to-top.svg'
+import backToTop from '../../assets/images/svg/back-to-top.svg'
 
 const BackToTop = () => {
     const [showButton, setShowButton] = useState(false);
@@ -20,7 +20,7 @@ const BackToTop = () => {
     return (
         <>
             {showButton && (
-                <div onClick={scrollToTop} className="fixed bottom-5 bg-[#1C2430] flex justify-center items-center border animate-bounce right-5 cursor-pointer z-10 size-10 rounded-full transition-all duration-200 ease-linear" >
+                <div onClick={scrollToTop} className="fixed bottom-5 bg-dark-blue flex justify-center items-center border animate-bounce right-5 cursor-pointer z-10 size-10 rounded-full transition-all duration-200 ease-linear" >
                     <img src={backToTop} alt="backToTop" />
                 </div>
             )}

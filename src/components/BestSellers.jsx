@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
-import Button from './common/Button.jsx';
+import CustomButton from './common/CustomButton.jsx';
 import { BESTSELLERS_DATA } from '../utils/helper.js';
 import heartIcon from '../assets/images/svg/heart.svg';
 import filledHeartIcon from '../assets/images/svg/heart-filled.svg';
@@ -10,6 +10,8 @@ import cartIcon from '../assets/images/svg/cart-icon.svg';
 import leftArrow from '../assets/images/svg/left-arrow.svg';
 import rightArrow from '../assets/images/svg/right-arrow.svg';
 import Heading from './common/Heading.jsx';
+import ratingImage from '../assets/images/svg/star.svg';
+
 
 const getImageSize = (title) => {
     if (title.includes('Gaming PC')) return 'w-[200px] h-[230px]';
@@ -67,7 +69,7 @@ const BestSellers = () => {
                                         onClick={() => toggleWishlist(item.slug)}
                                         className="absolute top-6 right-7 size-8 z-10 cursor-pointer transition-transform hover:scale-110"
                                     />
-                                    <div className={`w-[362px] h-[262.65px] rounded-[6px] mx-auto flex items-center justify-center ${index === 1 ? 'bg-blue' : 'bg-silver'}`}>
+                                    <div className={`xl:w-[362px] lg:w-[286px] md:w-[320px] w-[310px] h-[262.65px] rounded-[6px] mx-auto flex items-center justify-center ${index === 1 ? 'bg-blue' : 'bg-silver'}`}>
                                         <img
                                             src={item.img}
                                             alt={item.title}
@@ -81,28 +83,28 @@ const BestSellers = () => {
                                     <p className="text-dark-blue text-sm sm:text-base">{item.description}</p>
                                     <div className="flex justify-between items-center mt-4">
                                         <span className="text-xl sm:text-2xl font-semibold text-dark-blue">{item.price}</span>
-                                        <img src={item.rating} alt="Rating" className="w-[100px] sm:w-[128px]" />
+                                        <img src={ratingImage} alt="Rating" className="w-[100px] sm:w-[128px]" />
                                     </div>
                                     <div className="cursor-pointer flex items-center justify-between gap-4 pt-6">
-                                        <Button
+                                        <CustomButton
                                             btnText="Shop Now"
                                             onClick={() => {
                                                 window.location.href = `/product/${item.slug}`;
                                             }}
-                                            btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-6 xl:px-[88px]"
+                                            btnClass="hover:bg-[#112D49] hover:text-white !text-dark-blue px-14 xl:px-[88px]"
                                         />
-                                        <div className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center">
-                                            <img src={cartIcon} alt="Cart" className="w-6 h-6" />
+                                        <div className="flex items-center justify-center">
+                                            <img src={cartIcon} alt="Cart" className="size-12" />
                                         </div>
                                     </div>
                                 </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <button className="custom-prev sm:flex absolute xl:left-[-50px] md:left-[40%] lg:left-[43%] bottom-[-17%] lg:bottom-[-15%] left-[36%] xl:bottom-[43%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
+                    <button className="custom-prev sm:flex absolute xl:left-[-50px] md:left-[43%] lg:left-[43%] bottom-[-17%] lg:bottom-[-15%] left-[36%] xl:bottom-[43%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
                         <img src={leftArrow} alt="Prev" className="size-[38px] cursor-pointer" />
                     </button>
-                    <button className="custom-next sm:flex absolute xl:right-[-50px] md:right-[40%] lg:right-[45%] bottom-[-17%] lg:bottom-[-15%] right-[36%] xl:bottom-[43%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
+                    <button className="custom-next sm:flex absolute xl:right-[-50px] md:right-[43%] lg:right-[45%] bottom-[-17%] lg:bottom-[-15%] right-[36%] xl:bottom-[43%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
                         <img src={rightArrow} alt="Next" className="size-[38px] cursor-pointer" />
                     </button>
 

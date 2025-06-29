@@ -1,5 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import reveiwImg from '../assets/images/png/review-img.png';
+import ratingImage from '../assets/images/svg/star.svg';
+
 
 const tabs = [
     { key: 'reviews', label: 'Reviews', align: 'text-left' },
@@ -39,7 +41,7 @@ const ProductTabs = () => {
     }, [activeTab]);
 
     return (
-        <div className="mt-16 max-w-6xl mx-auto px-2 sm:px-6 relative">
+        <div className="max-w-[1140px] mx-auto relative">
             <div className="relative sm:overflow-x-auto overflow-x-scroll no-scrollbar border-none bg-transparent" style={{ minHeight: 48 }}>
                 <div className="flex w-max sm:w-full min-w-full relative sm:justify-between">
                     {tabs.map(({ key, label, align }, i) => (
@@ -64,10 +66,10 @@ const ProductTabs = () => {
                             <div className="flex flex-col lg:min-w-[220px]">
                                 <div className="text-[20px] sm:text-[22px] font-semibold text-dark-blue mb-1">Customer Reviews</div>
                                 <div className="mb-2">
-                                    <span className="text-[#FFD600] text-xl font-bold">★★★★★</span>
+                                    <img src={ratingImage} alt="ratingImage" className='max-w-[88px]' />
                                     <p className="font-medium text-dark-blue mt-1">Based on 1 review</p>
                                 </div>
-                                <a href="#" className="text-dark-blue mt-10 text-sm font-medium hover:underline flex items-center gap-1">
+                                <a href="#" className="text-dark-blue md:mt-26 mt-8 text-sm font-medium hover:underline flex items-center gap-1">
                                     See all Customers Reviews <span className="ml-1">&gt;</span>
                                 </a>
                             </div>
@@ -90,12 +92,12 @@ const ProductTabs = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div className="flex-1 lg:min-w-[250px] flex flex-col items-start lg:items-end">
-                                <div className="rounded-xl p-5 sm:p-6 w-full max-w-xs bg-[#F9FAFB]">
+                            <div className="flex-1 lg:min-w-[250px] flex flex-col items-start lg:items-end ">
+                                <div className="rounded-xl p-5 sm:p-6 w-full max-w-xs">
                                     <h4 className="text-lg font-semibold text-dark-blue mb-1">Review this Product</h4>
                                     <p className="text-xs text-gray-500 mb-4">Share your thought with other customers</p>
                                     <button
-                                        className="bg-[#112D49] cursor-pointer text-white w-full py-3 rounded-full font-medium shadow hover:bg-[#18314F] transition whitespace-nowrap"
+                                        className="bg-[#112D49] cursor-pointer md:mb-18 mb-5 text-white w-full py-3 rounded-full font-medium shadow hover:bg-[#18314F] transition whitespace-nowrap"
                                         onClick={() => setShowReviewPopup(true)}
                                     >
                                         Write a Customer Review
@@ -112,12 +114,12 @@ const ProductTabs = () => {
                             />
                             <div>
                                 <div className="flex items-center gap-2 flex-wrap">
-                                    <span className="text-[#FFD600] text-base">★★★★★</span>
-                                    <span className="text-gray-400 text-xs">23/05/2025</span>
+                                    <img src={ratingImage} alt="ratingImg" className='max-w-[116px]'/>
+                                    <span className="text-dark-blue font-medium text-sm">23/05/2025</span>
                                 </div>
-                                <div className="font-semibold text-dark-blue text-base">Kathryn Murphy</div>
-                                <div className="text-gray-600 text-sm mt-2 max-w-2xl">
-                                    Excellent router that offers great value for its price...
+                                <div className="font-semibold text-dark-blue text-xl">Kathryn Murphy</div>
+                                <div className="text-gray-600 mt-2 max-w-[971px]">
+                                    Excellent router that offers great value for its price. The setup process is straightforward and user-friendly, making it easy even for non-technical users. With two powerful 5 dBi antennas, the router delivers a strong and stable network connection throughout the home or office, ensuring no lag or disconnections during browsing, streaming, or gaming. Its compact design fits well in any space, making it both efficient and unobtrusive. Highly recommended for reliable everyday internet use.
                                 </div>
                             </div>
                         </div>

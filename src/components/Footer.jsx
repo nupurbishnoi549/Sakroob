@@ -1,5 +1,5 @@
 import React from "react";
-import { NAV_LINKS, SOCIALS, LEGAL_LINKS } from "../utils/helper";
+import { FOOTER_LINKS, SOCIALS, LEGAL_LINKS } from "../utils/helper";
 import footerLogo from '../assets/images/png/footer-logo.png';
 import SakroobCircle from '../components/SakroobCircle';
 import Description from "./common/Description";
@@ -20,7 +20,7 @@ const Footer = ({ showSakroob = true }) => {
                 </div>
             )}
 
-            <div className="max-w-xl  mx-auto flex flex-col items-center text-center">
+            <div className="max-w-[1140px]  mx-auto flex flex-col items-center text-center">
                 <img src={footerLogo} alt="Sakroob" className="w-[176px] h-[142px] mb-4 pointer-events-none" />
                 <Description
                     descriptionText="Commodo egestas etiam arcu curabitur aliquam volutpat a gravida."
@@ -28,15 +28,15 @@ const Footer = ({ showSakroob = true }) => {
                 />
 
                 <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 font-medium mb-6">
-                    {NAV_LINKS.map(link => (
-                        <a key={link.label} href={link.href} className="hover:underline">{link.label}</a>
+                    {FOOTER_LINKS.map(link => (
+                        <a key={link.label} href={link.url} className="hover:underline">{link.label}</a>
                     ))}
                 </nav>
-                <div className="flex gap-4 mb-8">
+                <div className="flex gap-5 mb-8">
                     {SOCIALS.map(social => (
                         <a
                             key={social.alt}
-                            href={social.href}
+                            href={social.url}
                             aria-label={social.alt}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -52,11 +52,11 @@ const Footer = ({ showSakroob = true }) => {
 
             <div className="w-full h-px bg-gradient-to-r from-transparent via-white/80 to-transparent my-6" />
 
-            <div className="max-w-xl mx-auto flex flex-col sm:flex-row justify-between items-center text-xs text-gray-300 gap-2">
+            <div className="max-w-[1140px] mx-auto flex flex-col sm:flex-row justify-between items-center text-xs text-gray-300 gap-2">
                 <div>
                     {LEGAL_LINKS.map((link, idx) => (
                         <React.Fragment key={link.label}>
-                            <a href={link.href} className="hover:underline">{link.label}</a>
+                            <a href={link.url} className="hover:underline">{link.label}</a>
                             {idx < LEGAL_LINKS.length - 1 && <span className="mx-2">|</span>}
                         </React.Fragment>
                     ))}
