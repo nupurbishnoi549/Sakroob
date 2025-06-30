@@ -146,3 +146,6 @@
 .burger-line-3-open {
   transform: translateY(-8px) rotate(-45deg);
 }
+/* #about .swiper{
+  overflow: visible !important;
+} */

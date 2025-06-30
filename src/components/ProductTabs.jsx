@@ -62,7 +62,7 @@ const ProductTabs = () => {
             <div className="rounded-xl shadow border border-[#E5EAF1] bg-white p-6 sm:p-8">
                 {activeTab === 'reviews' && (
                     <div>
-                        <div className="flex flex-col lg:flex-row gap-8">
+                        <div className="flex flex-col lg:flex-row">
                             <div className="flex flex-col lg:min-w-[220px]">
                                 <div className="text-[20px] sm:text-[22px] font-semibold text-dark-blue mb-1">Customer Reviews</div>
                                 <div className="mb-2">
@@ -73,7 +73,7 @@ const ProductTabs = () => {
                                     See all Customers Reviews <span className="ml-1">&gt;</span>
                                 </a>
                             </div>
-                            <div className="flex-1 max-w-full sm:max-w-[360px] pt-4">
+                            <div className="flex-1 max-w-full sm:max-w-[360px] pt-8">
                                 <div className="space-y-2">
                                     {reviewsSummary.map((r) => (
                                         <div key={r.stars} className="flex items-center gap-2">
@@ -83,7 +83,7 @@ const ProductTabs = () => {
                                             </span>
                                             <div className="flex-1 bg-[#F1F4F9] rounded h-1.5 overflow-hidden">
                                                 <div
-                                                    className="bg-[#FFD600] h-1.5"
+                                                    className="bg-[#FFD600]  h-1.5"
                                                     style={{ width: `${r.percent}%` }}
                                                 />
                                             </div>

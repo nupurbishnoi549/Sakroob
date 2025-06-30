@@ -134,7 +134,7 @@ const Header = () => {
                     <input
                         type="text"
                         placeholder="Search..."
-                        className="w-full h-[52px] rounded-full pl-5 pr-12 text-[#0A2740] border placeholder-gray-500 focus:outline-none group-hover:border-[#0A2740]"
+                        className="w-full h-[52px] rounded-full pl-5 pr-12 text-[#0A2740] border-[#112D491A] bg-white placeholder-gray-500 focus:outline-none group-hover:border-[#0A2740]"
                     />
                     <img
                         src={search}
