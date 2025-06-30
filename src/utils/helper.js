@@ -176,11 +176,11 @@ export const BESTSELLERS_DATA = [
         slug: 'gaming-chair',
     },
     {
-        img: wirelessRouter,
-        title: 'D-Link ADSL Wireless Router DSL2790U',
+        img: gamingChair,
+        title: 'Gaming Chair',
         description: 'Commodo egestas etiam arcu curabitur aliquam volutpat a gravida.',
-        price: '$179.99',
-        slug: 'd-link-adsl-wireless-router-dsl2790u-2',
+        price: '₹ 23956.00',
+        slug: 'gaming-chair',
     },
 ];
 export const POPULAR_PRODUCT = [

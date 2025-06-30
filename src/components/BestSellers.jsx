@@ -14,7 +14,7 @@ import ratingImage from '../assets/images/svg/star.svg';
 
 
 const getImageSize = (title) => {
-    if (title.includes('Gaming PC')) return 'w-[200px] h-[230px]';
+    if (title.includes('Gaming PC')) return 'w-[234px] h-[230px]';
     if (title.includes('Router')) return 'w-[230px] h-[230px]';
     if (title.includes('Gaming Chair')) return 'w-[180px] h-[230px]';
     return 'w-[200px] h-[240px]';
@@ -36,10 +36,10 @@ const BestSellers = () => {
     };
 
     return (
-        <div id='about' className="xl:pb-[132px] lg:pb-24 pb-30 bg-white">
-            <div className="max-w-[1284px] mx-auto px-4 sm:px-5">
-                <Heading headingText="Bestsellers" headingClass="!text-center" />
-                <div className="relative mt-12 sm:mt-16">
+        <div id='about' className="xl:pb-[132px] lg:pb-24 pb-30 bg-white ">
+            <div className="max-w-[1284px] mx-auto px-4 sm:px-5 relative ">
+                <Heading headingText="Bestsellers" headingClass="!text-center !pb-15" />
+                <div className="relative pt-20 overflow-hidden">
                     <Swiper
                         spaceBetween={18}
                         slidesPerView={3}
@@ -61,21 +61,30 @@ const BestSellers = () => {
                         pagination={false}
                     >
                         {BESTSELLERS_DATA.map((item, index) => (
-                            <SwiperSlide key={index} className="flex justify-center !overflow-visible">
-                                <div className="relative w-full xl:max-w-[364px]  h-[580px] bg-white border border-black shadow-md p-4 rounded-[8px] flex flex-col justify-between mx-auto">
+                            <SwiperSlide key={index} className="flex justify-center">
+                                <div className="relative w-full xl:max-w-[364px] h-[580px] bg-white border border-black shadow-md p-4 rounded-[8px] flex flex-col justify-between mx-auto">
                                     <img
                                         src={wishlist.includes(item.slug) ? filledHeartIcon : heartIcon}
                                         alt="Heart"
                                         onClick={() => toggleWishlist(item.slug)}
                                         className="absolute top-6 xl:right-7 right-7 lg:right-4 size-8 z-10 cursor-pointer transition-transform hover:scale-110"
                                     />
-                                    <div className={`xl:w-[332px] lg:w-[286px] md:w-[320px] w-[310px] h-[262.65px] rounded-[6px] mx-auto flex items-center justify-center ${index === 1 ? 'bg-blue' : 'bg-silver'}`}>
+                                    <div
+                                        className={`xl:w-[332px] overflow-visible lg:w-[286px] md:w-[320px] w-[310px] h-[262.65px] rounded-[6px] mx-auto flex items-center justify-center ${index === 1 ? 'bg-blue' : 'bg-silver'
+                                            }`}
+                                    >
                                         <img
                                             src={item.img}
                                             alt={item.title}
-                                            className={`object-contain pointer-events-none ${getImageSize(item.title)}`}
+                                            className={`object-contain absolute pointer-events-none ${index === 0
+                                                ? 'top-[-40px] min-w-[238px] min-h-[274px] w-full'
+                                                : index === 1
+                                                    ? 'top-[-60px] min-w-[265px] min-h-[314px]'
+                                                    : 'top-[-80px] min-w-[205px] min-h-[336px]'
+                                                } ${getImageSize(item.title)}`}
                                         />
                                     </div>
+
 
                                     <h3 className="text-xl xl:text-2xl font-bold text-dark-blue lg:mt-5 mt-8 min-h-[48px]">
                                         {item.title}
@@ -101,10 +110,11 @@ const BestSellers = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <button className="custom-prev sm:flex absolute xl:left-[-50px] md:left-[43%] lg:left-[43%] bottom-[-17%] lg:bottom-[-15%] left-[36%] xl:bottom-[43%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <button className="custom-prev sm:flex absolute xl:left-[-30px] md:left-[43%] lg:left-[45%] bottom-[-10%] lg:bottom-[-9%] left-[36%] xl:bottom-[31%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
                         <img src={leftArrow} alt="Prev" className="size-[38px] cursor-pointer" />
                     </button>
-                    <button className="custom-next sm:flex absolute xl:right-[-50px] md:right-[43%] lg:right-[45%] bottom-[-17%] lg:bottom-[-15%] right-[36%] xl:bottom-[43%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
+                    <button className="custom-next sm:flex absolute xl:right-[-30px] md:right-[43%] lg:right-[46%] bottom-[-10%] lg:bottom-[-9%] right-[36%] xl:bottom-[31%] -translate-y-1/2 z-50 hover:scale-110 transition-transform duration-300">
                         <img src={rightArrow} alt="Next" className="size-[38px] cursor-pointer" />
                     </button>
 
@@ -113,7 +123,6 @@ const BestSellers = () => {
                             {message}
                         </div>
                     )}
-                </div>
             </div>
         </div>
     );
